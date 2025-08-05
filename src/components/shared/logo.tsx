@@ -25,7 +25,6 @@ const Logo = () => {
         
         {/* Left Olive Branch */}
         <g transform="translate(10, 40) scale(0.8)">
-          <path className="leaf" d="M -35 -20 a 40 40 0 0 1 0 80" fill="none" stroke="#7CBB4A" strokeWidth="5"/>
           <g>
             <path className="leaf" d="M -35 20 l 15 -5" stroke="#7CBB4A" strokeWidth="4"/>
             <path className="leaf" d="M -37 10 l 15 -5" stroke="#7CBB4A" strokeWidth="4"/>
@@ -43,7 +42,6 @@ const Logo = () => {
 
         {/* Right Olive Branch */}
         <g transform="translate(190, 40) scale(-0.8, 0.8)">
-           <path className="leaf" d="M -35 -20 a 40 40 0 0 1 0 80" fill="none" stroke="#7CBB4A" strokeWidth="5"/>
           <g>
             <path className="leaf" d="M -35 20 l 15 -5" stroke="#7CBB4A" strokeWidth="4"/>
             <path className="leaf" d="M -37 10 l 15 -5" stroke="#7CBB4A" strokeWidth="4"/>
