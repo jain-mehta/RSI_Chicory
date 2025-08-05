@@ -5,6 +5,7 @@ import { COMPANY_ESTABLISHED } from '@/lib/constants';
 import { Building, Globe, Leaf, CheckSquare } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ProcessDiagram } from '@/components/shared/process-diagram';
 
 export const metadata: Metadata = {
   title: 'About Us | RSI Chicory',
@@ -108,18 +109,31 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Certifications Section */}
+      {/* Farm to Factory Section */}
       <section className="container mx-auto px-4 py-12 md:py-20">
         <div className="text-center">
-          <h2 className="font-headline text-3xl font-bold">Our Certifications</h2>
+          <h2 className="font-headline text-3xl font-bold">Our Farm-to-Factory Process</h2>
           <p className="mx-auto mt-2 max-w-3xl text-muted-foreground">
-            Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
+            We manage the entire supply chain to ensure complete traceability and uncompromising quality, from the seed to the final packaged product.
           </p>
-          <div className="mt-8 flex justify-center gap-4 md:gap-8">
-            <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">FSSAI</Badge>
-            <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">APEDA</Badge>
-            <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">IEC</Badge>
-          </div>
+        </div>
+        <ProcessDiagram />
+      </section>
+
+      {/* Certifications Section */}
+      <section className="bg-secondary py-12 md:py-20">
+        <div className="container mx-auto px-4">
+            <div className="text-center">
+                <h2 className="font-headline text-3xl font-bold">Our Certifications</h2>
+                <p className="mx-auto mt-2 max-w-3xl text-muted-foreground">
+                    Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
+                </p>
+                <div className="mt-8 flex justify-center gap-4 md:gap-8">
+                    <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">FSSAI</Badge>
+                    <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">APEDA</Badge>
+                    <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">IEC</Badge>
+                </div>
+            </div>
         </div>
       </section>
     </div>
