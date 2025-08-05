@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE } from '@/lib/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Contact Us | RSI Chicory',
@@ -13,69 +14,91 @@ export const metadata: Metadata = {
 const ContactPage = () => {
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20">
-      <div className="text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">Contact Our Team</h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          We are ready to assist with your B2B chicory needs. Reach out for bulk pricing, sample requests, or any other questions.
-        </p>
-      </div>
+    <div>
+        {/* Hero Section */}
+        <section className="relative h-[40vh] min-h-[300px] w-full bg-primary/20">
+            <Image
+            src="https://images.unsplash.com/photo-1577563908411-5ab7ced106c8?q=80&w=1920"
+            alt="Customer service representative"
+            data-ai-hint="contact center"
+            layout="fill"
+            objectFit="cover"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
+            <h1 className="font-headline text-4xl font-bold md:text-6xl">Get in Touch</h1>
+            <p className="mt-2 max-w-2xl text-lg text-primary-foreground/90">
+                We're here to help with all your B2B chicory needs.
+            </p>
+            </div>
+        </section>
 
-      <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-        {/* Contact Information */}
-        <div className="space-y-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Contact Details</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <a href={`tel:${COMPANY_PHONE}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
-                <Phone className="h-6 w-6 text-primary" />
-                <span className="text-lg">{COMPANY_PHONE}</span>
-              </a>
-              <a href={`mailto:${COMPANY_EMAIL}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
-                <Mail className="h-6 w-6 text-primary" />
-                <span className="text-lg">{COMPANY_EMAIL}</span>
-              </a>
-              <div className="flex items-start gap-4">
-                <MapPin className="mt-1 h-6 w-6 shrink-0 text-primary" />
-                <p className="text-lg text-muted-foreground">{COMPANY_ADDRESS}</p>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-                <CardTitle>Our Location</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="aspect-video overflow-hidden rounded-md">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.901597818967!2d78.6750033150522!3d27.56499998285141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974e7a9b8b6932f%3A0x1d5f6618e3251b53!2sUPSIDC%20Industrial%20Area%2C%20Etah%2C%20Uttar%20Pradesh%20207001%2C%20India!5e0!3m2!1sen!2sus!4v1678886400000!5m2!1sen!2sus" 
-                        width="100%" 
-                        height="100%" 
-                        style={{ border: 0 }} 
+        <div className="container mx-auto px-4 py-12 md:py-20">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+                {/* Contact Information */}
+                <div className="flex flex-col justify-center">
+                    <h2 className="font-headline text-3xl font-bold">Contact Information</h2>
+                    <p className="mt-4 text-lg text-muted-foreground">
+                        Reach out to our dedicated sales team for B2B inquiries, bulk pricing, or sample requests. We are available during standard business hours (IST).
+                    </p>
+                    <div className="mt-8 space-y-6">
+                        <a href={`mailto:${COMPANY_EMAIL}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
+                            <Mail className="h-8 w-8 text-primary" />
+                            <div>
+                                <p className="font-semibold">Email</p>
+                                <p className="text-lg">{COMPANY_EMAIL}</p>
+                            </div>
+                        </a>
+                        <a href={`tel:${COMPANY_PHONE}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
+                            <Phone className="h-8 w-8 text-primary" />
+                            <div>
+                                <p className="font-semibold">Phone</p>
+                                <p className="text-lg">{COMPANY_PHONE}</p>
+                            </div>
+                        </a>
+                        <div className="flex items-start gap-4">
+                            <MapPin className="mt-1 h-8 w-8 shrink-0 text-primary" />
+                            <div>
+                                <p className="font-semibold">Our Office</p>
+                                <p className="text-lg text-muted-foreground">{COMPANY_ADDRESS}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Contact Form */}
+                <div>
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Send us a Message</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ContactForm sourcePage="Contact Us Page" />
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+
+            {/* Map Section */}
+            <section className="mt-20">
+                <h2 className="text-center font-headline text-3xl font-bold">Our Location</h2>
+                 <p className="mx-auto mt-2 max-w-2xl text-center text-muted-foreground">
+                    Visit our manufacturing facility in Etah, Uttar Pradesh.
+                </p>
+                <div className="mt-8 aspect-video overflow-hidden rounded-lg shadow-md">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.901597818967!2d78.6750033150522!3d27.56499998285141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974e7a9b8b6932f%3A0x1d5f6618e3251b53!2sUPSIDC%20Industrial%20Area%2C%20Etah%2C%20Uttar%20Pradesh%20207001%2C%20India!5e0!3m2!1sen!2sus!4v1678886400000!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
                         allowFullScreen={true}
-                        loading="lazy" 
+                        loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                         title="RSI Chicory Location Map"
                     ></iframe>
                 </div>
-            </CardContent>
-          </Card>
+            </section>
         </div>
-
-        {/* Contact Form */}
-        <div>
-          <Card>
-            <CardHeader>
-              <CardTitle>Send us a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ContactForm sourcePage="Contact Us Page" />
-            </CardContent>
-          </Card>
-        </div>
-      </div>
     </div>
   );
 };
