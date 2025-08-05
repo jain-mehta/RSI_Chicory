@@ -33,7 +33,19 @@ export function LanguageSelector() {
 
   const handleLanguageChange = (lang: Language) => {
     setSelectedLanguage(lang);
-    const newPathname = pathname.replace(`/${pathname.split('/')[1]}`, `/${lang.code.toLowerCase()}`);
+    const currentLangCode = pathname.split('/')[1];
+    let newPathname;
+    if (i18n.locales.includes(currentLangCode as (typeof i18n.locales)[number])) {
+        newPathname = pathname.replace(`/${currentLangCode}`, `/${lang.code}`);
+    } else {
+        newPathname = `/${lang.code}${pathname}`;
+    }
+
+    // handle case where pathname is /
+    if (pathname === `/${currentLangCode}`) {
+        newPathname = `/${lang.code}`;
+    }
+    
     router.push(newPathname);
   };
 
