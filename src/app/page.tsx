@@ -13,8 +13,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] w-full bg-primary/20">
         <Image
-          src="https://images.unsplash.com/photo-1444930694458-01babf71870c?q=80&w=1920"
-          alt="Chicory farm landscape"
+          src="https://images.unsplash.com/photo-1589732380879-bf11597ac7de?q=80&w=1920"
+          alt="Chicory farm landscape with a beautiful sunrise"
           data-ai-hint="chicory farm"
           layout="fill"
           objectFit="cover"
@@ -117,9 +117,9 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="https://placehold.co/600x400.png"
+                src="https://images.unsplash.com/photo-1579693910433-e4c76a59e9aa?q=80&w=600"
                 alt="Industrial processing of chicory"
-                data-ai-hint="industrial factory"
+                data-ai-hint="food processing"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-md"

@@ -16,7 +16,7 @@ const AboutPage = () => {
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] w-full bg-primary/20">
         <Image
-          src="https://placehold.co/1920x800.png"
+          src="https://images.unsplash.com/photo-1549488344-cbb6c144a423?q=80&w=1920"
           alt="Chicory processing facility"
           data-ai-hint="factory exterior"
           layout="fill"
@@ -45,7 +45,7 @@ const AboutPage = () => {
           </div>
           <div>
             <Image
-              src="https://placehold.co/600x400.png"
+              src="https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=600"
               alt="Inside of a modern food processing plant"
               data-ai-hint="industrial interior"
               width={600}

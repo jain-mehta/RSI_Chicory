@@ -34,12 +34,12 @@ const testimonials = [
 ];
 
 const partners = [
-    { name: 'Global Coffee Co.', logo: 'https://placehold.co/160x80.png', aiHint: 'company logo' },
-    { name: 'Artisan Beverage Creators', logo: 'https://placehold.co/160x80.png', aiHint: 'company logo' },
-    { name: 'East Asia Food Traders', logo: 'https://placehold.co/160x80.png', aiHint: 'company logo' },
-    { name: 'Euro Ingredients Inc.', logo: 'https://placehold.co/160x80.png', aiHint: 'company logo' },
-    { name: 'American Blends Corp', logo: 'https://placehold.co/160x80.png', aiHint: 'company logo' },
-    { name: 'Premium Foods Ltd.', logo: 'https://placehold.co/160x80.png', aiHint: 'company logo' },
+    { name: 'Global Coffee Co.', logo: 'https://images.unsplash.com/photo-1621235654522-c2e3a1f87309?q=80&w=160', aiHint: 'company logo' },
+    { name: 'Artisan Beverage Creators', logo: 'https://images.unsplash.com/photo-1559897335-a3a6d4a2a1b9?q=80&w=160', aiHint: 'company logo' },
+    { name: 'East Asia Food Traders', logo: 'https://images.unsplash.com/photo-1588600494458-76a7e9282b5e?q=80&w=160', aiHint: 'company logo' },
+    { name: 'Euro Ingredients Inc.', logo: 'https://images.unsplash.com/photo-1628198595449-55e9cde69389?q=80&w=160', aiHint: 'company logo' },
+    { name: 'American Blends Corp', logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=160', aiHint: 'company logo' },
+    { name: 'Premium Foods Ltd.', logo: 'https://images.unsplash.com/photo-1615996025078-7b4c6e866819?q=80&w=160', aiHint: 'company logo' },
 ]
 
 export default function PartnersPage() {

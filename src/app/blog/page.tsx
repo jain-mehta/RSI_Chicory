@@ -18,7 +18,7 @@ const blogPosts = [
     description: 'An analysis of the key drivers, challenges, and opportunities shaping the international B2B chicory market.',
     date: 'July 15, 2025',
     category: 'Industry News',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600',
     aiHint: 'market graph',
   },
   {
@@ -27,7 +27,7 @@ const blogPosts = [
     description: 'A technical guide for coffee processors on leveraging roasted chicory to enhance flavor, color, and cost-effectiveness.',
     date: 'July 01, 2025',
     category: 'Processing',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600',
     aiHint: 'coffee beans chicory',
   },
   {
@@ -36,7 +36,7 @@ const blogPosts = [
     description: 'How the contract farming model is revolutionizing quality and traceability for agricultural exports like chicory.',
     date: 'June 20, 2025',
     category: 'Sourcing',
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://images.unsplash.com/photo-1617633285116-42f216f21c21?q=80&w=600',
     aiHint: 'farmer handshake',
   },
 ];
