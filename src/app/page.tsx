@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] w-full bg-primary/20">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="https://images.unsplash.com/photo-1444930694458-01babf71870c?q=80&w=1920"
           alt="Chicory farm landscape"
           data-ai-hint="chicory farm"
           layout="fill"
