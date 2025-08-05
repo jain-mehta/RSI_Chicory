@@ -4,6 +4,7 @@
 "use client";
 
 import { useState } from "react";
+import ReactCountryFlag from "react-country-flag";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -20,14 +21,24 @@ export function LanguageSelector() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="px-2">
-           <selectedLanguage.flag className="mr-2 h-5 w-5" />
+           <ReactCountryFlag
+              countryCode={selectedLanguage.countryCode}
+              svg
+              className="mr-2 h-5 w-5"
+              title={selectedLanguage.name}
+            />
           {selectedLanguage.code}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {LANGUAGES.map((lang) => (
           <DropdownMenuItem key={lang.code} onSelect={() => setSelectedLanguage(lang)}>
-            <lang.flag className="mr-2 h-5 w-5" />
+             <ReactCountryFlag
+                countryCode={lang.countryCode}
+                svg
+                className="mr-2 h-5 w-5"
+                title={lang.name}
+              />
             {lang.name}
           </DropdownMenuItem>
         ))}
