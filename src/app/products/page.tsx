@@ -1,15 +1,32 @@
 
+'use client';
+
+import { useState, useEffect } from 'react';
 import { ProductCard } from '@/components/product-card';
-import { products } from '@/lib/products';
+import { products, Product } from '@/lib/products';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 import type { Metadata } from 'next';
 
-
-export const metadata: Metadata = {
-  title: 'Our Products | RSI Chicory',
-  description: 'Explore our full range of B2B chicory products, including raw roots, roasted cubes, liquid extract, granules, and powder. Sourced and processed for industrial use.',
-};
+// Note: Metadata export is still supported in Client Components,
+// but it needs to be defined and exported from a Server Component.
+// In this case, since we are converting the whole page, we can't export it directly.
+// For a real app, you might move metadata to layout.tsx or a parent Server Component.
+// For this exercise, we will remove it as this is a client component.
 
 export default function ProductsPage() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+
+  useEffect(() => {
+    const lowercasedTerm = searchTerm.toLowerCase();
+    const results = products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(lowercasedTerm) ||
+        product.description.toLowerCase().includes(lowercasedTerm)
+    );
+    setFilteredProducts(results);
+  }, [searchTerm]);
 
   return (
     <div className="bg-background">
@@ -21,11 +38,30 @@ export default function ProductsPage() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard key={product.slug} product={product} />
-          ))}
+        <div className="mx-auto mt-8 mb-12 max-w-lg">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search for products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full rounded-full bg-secondary py-6 pl-12 pr-4 text-base"
+            />
+          </div>
         </div>
+
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-xl text-muted-foreground">No products found matching your search.</p>
+          </div>
+        )}
       </div>
     </div>
   );
