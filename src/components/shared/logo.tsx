@@ -50,9 +50,6 @@ const Logo = () => {
           </g>
         </g>
       </svg>
-      <span className="hidden text-xl font-bold text-foreground sm:inline-block">
-        RSI Chicory
-      </span>
     </Link>
   );
 };
