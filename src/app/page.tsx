@@ -41,38 +41,40 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-12 md:py-20">
+      <section className="bg-background py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <h2 className="mb-2 text-center font-headline text-3xl font-bold">Our Products</h2>
-          <p className="mb-10 max-w-3xl mx-auto text-center text-muted-foreground">
-            We offer a comprehensive range of chicory products to meet the diverse needs of coffee processors, ingredient traders, and food manufacturers worldwide.
-          </p>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {featuredProducts.map((product) => (
-              <Card key={product.slug} className="overflow-hidden transition-shadow duration-300 hover:shadow-lg">
-                <CardHeader className="p-0">
+          <div className="text-center">
+            <h2 className="mb-4 font-headline text-3xl font-bold">Our Products</h2>
+            <p className="mx-auto mb-12 max-w-3xl text-muted-foreground">
+              We offer a comprehensive range of chicory products to meet the diverse needs of coffee processors, ingredient traders, and food manufacturers worldwide.
+            </p>
+          </div>
+          <div className="space-y-16">
+            {featuredProducts.map((product, index) => (
+              <div key={product.slug} className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+                <div className={`h-80 w-full overflow-hidden rounded-lg shadow-md md:h-96 ${index % 2 === 1 ? 'md:order-last' : ''}`}>
                   <Image
                     src={product.image}
                     alt={product.name}
                     data-ai-hint={product.aiHint}
-                    width={400}
-                    height={300}
-                    className="h-48 w-full object-cover"
+                    width={600}
+                    height={400}
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   />
-                </CardHeader>
-                <CardContent className="p-6">
-                  <CardTitle className="mb-2 text-xl">{product.name}</CardTitle>
-                  <CardDescription className="mb-4 h-20 overflow-hidden">{product.description}</CardDescription>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="font-headline text-2xl font-bold">{product.name}</h3>
+                  <p className="text-muted-foreground">{product.description}</p>
                   <Button asChild variant="link" className="p-0 text-accent">
                     <Link href={`/products/${product.slug}`}>
                       View Details <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <Button asChild size="lg" variant="outline">
               <Link href="/products">Explore All Products</Link>
             </Button>
