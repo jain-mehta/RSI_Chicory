@@ -1,8 +1,9 @@
 // This component provides the UI for language selection.
-// Full i18n implementation would require a library like 'next-international' or 'react-i18next'.
+// It uses local state to manage the currently selected language.
 
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,30 +11,26 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
+import { LANGUAGES, type Language } from "@/lib/languages.tsx";
 
 export function LanguageSelector() {
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(LANGUAGES[0]);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Globe className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">Select language</span>
+        <Button variant="ghost" className="px-2">
+           <selectedLanguage.flag className="mr-2 h-5 w-5" />
+          {selectedLanguage.code}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>
-          English
-        </DropdownMenuItem>
-        <DropdownMenuItem disabled>
-          Español (coming soon)
-        </DropdownMenuItem>
-        <DropdownMenuItem disabled>
-          Français (coming soon)
-        </DropdownMenuItem>
-        <DropdownMenuItem disabled>
-          العربية (coming soon)
-        </DropdownMenuItem>
+        {LANGUAGES.map((lang) => (
+          <DropdownMenuItem key={lang.code} onSelect={() => setSelectedLanguage(lang)}>
+            <lang.flag className="mr-2 h-5 w-5" />
+            {lang.name}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
