@@ -1,8 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname, useRouter } from 'next/navigation';
+import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,42 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LANGUAGES, type Language } from "@/lib/languages";
-import { i18n } from "@/i18n.config";
 
 export function LanguageSelector() {
-  const pathname = usePathname();
-  const router = useRouter();
-  
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
-    const currentLangCode = pathname.split('/')[1] as Language['code'] || i18n.defaultLocale;
-    return LANGUAGES.find(lang => lang.code === currentLangCode) || LANGUAGES[0];
-  });
-  
-  useEffect(() => {
-    const currentLangCode = pathname.split('/')[1] as Language['code'] || i18n.defaultLocale;
-    const currentLanguage = LANGUAGES.find(lang => lang.code === currentLangCode);
-    if(currentLanguage) {
-      setSelectedLanguage(currentLanguage);
-    }
-  }, [pathname]);
-
-  const handleLanguageChange = (lang: Language) => {
-    setSelectedLanguage(lang);
-    const currentLangCode = pathname.split('/')[1];
-    let newPathname;
-    if (i18n.locales.includes(currentLangCode as (typeof i18n.locales)[number])) {
-        newPathname = pathname.replace(`/${currentLangCode}`, `/${lang.code}`);
-    } else {
-        newPathname = `/${lang.code}${pathname}`;
-    }
-
-    // handle case where pathname is /
-    if (pathname === `/${currentLangCode}`) {
-        newPathname = `/${lang.code}`;
-    }
-    
-    router.push(newPathname);
-  };
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    LANGUAGES[0]
+  );
 
   return (
     <DropdownMenu>
@@ -64,7 +32,7 @@ export function LanguageSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {LANGUAGES.map((lang) => (
-          <DropdownMenuItem key={lang.code} onSelect={() => handleLanguageChange(lang)}>
+          <DropdownMenuItem key={lang.code} onSelect={() => setSelectedLanguage(lang)}>
              <ReactCountryFlag
                 countryCode={lang.countryCode}
                 svg

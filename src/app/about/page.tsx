@@ -5,18 +5,13 @@ import { COMPANY_ESTABLISHED } from '@/lib/constants';
 import { Building, Globe, Leaf, CheckSquare } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
-
 
 export const metadata: Metadata = {
   title: 'About Us | RSI Chicory',
   description: `Learn about RSI Chicory, a leading B2B chicory manufacturer based in Etah, UP, India. Discover our commitment to quality, contract farming, and export readiness. Established in ${COMPANY_ESTABLISHED}.`,
 };
 
-const AboutPage = async ({ params: { lang } }: { params: { lang: Language['code'] } }) => {
-  const dictionary = await getDictionary(lang);
-  const t = dictionary.AboutPage;
+const AboutPage = () => {
 
   return (
     <div>
@@ -31,9 +26,9 @@ const AboutPage = async ({ params: { lang } }: { params: { lang: Language['code'
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
-          <h1 className="font-headline text-4xl font-bold md:text-6xl">{t.title}</h1>
+          <h1 className="font-headline text-4xl font-bold md:text-6xl">About RSI Chicory</h1>
           <p className="mt-2 max-w-2xl text-lg text-primary-foreground/90">
-            {t.subtitle}
+            Manufacturing Excellence, B2B Partnerships, and Export Readiness
           </p>
         </div>
       </section>
@@ -42,12 +37,12 @@ const AboutPage = async ({ params: { lang } }: { params: { lang: Language['code'
       <section className="container mx-auto px-4 py-12 md:py-20">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div>
-            <h2 className="font-headline text-3xl font-bold">{t.ourStory}</h2>
+            <h2 className="font-headline text-3xl font-bold">Our Story</h2>
             <p className="mt-4 text-muted-foreground">
-              {t.storyP1.replace('{COMPANY_ESTABLISHED}', COMPANY_ESTABLISHED.toString())}
+              Established in {COMPANY_ESTABLISHED}, RS Impex, under the brand name RSI Chicory, was founded with a mission to become a global leader in the B2B chicory market. Based in Etah, Uttar Pradesh, India, we leverage the region's agricultural strengths to produce high-quality chicory products for a worldwide clientele.
             </p>
             <p className="mt-4 text-muted-foreground">
-              {t.storyP2}
+              Our business is built on a foundation of manufacturing excellence, strong B2B partnerships, and a commitment to being fully export-ready. We pride ourselves on our ability to meet the stringent demands of international buyers, from coffee processors and ingredient traders to large-scale food and beverage companies.
             </p>
           </div>
           <div>
@@ -67,46 +62,46 @@ const AboutPage = async ({ params: { lang } }: { params: { lang: Language['code'
       <section className="bg-secondary py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h2 className="font-headline text-3xl font-bold">{t.commitmentTitle}</h2>
+            <h2 className="font-headline text-3xl font-bold">Our Commitment</h2>
             <p className="mx-auto mt-2 max-w-3xl text-muted-foreground">
-              {t.commitmentSubtitle}
+              We are dedicated to sustainable practices, community empowerment, and delivering unparalleled value to our B2B partners.
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="items-center">
                 <Leaf className="h-10 w-10 text-primary" />
-                <CardTitle className="mt-2">{t.contractFarming}</CardTitle>
+                <CardTitle className="mt-2">Contract Farming</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-muted-foreground">
-                {t.contractFarmingDesc}
+                We partner directly with local farmers, ensuring fair prices, providing quality seeds, and promoting sustainable agriculture. This model guarantees a consistent, high-quality, and traceable raw material supply.
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="items-center">
                 <CheckSquare className="h-10 w-10 text-primary" />
-                <CardTitle className="mt-2">{t.qualityCompliance}</CardTitle>
+                <CardTitle className="mt-2">Quality & Compliance</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-muted-foreground">
-                {t.qualityComplianceDesc}
+                Our state-of-the-art facility operates under strict quality control protocols. We maintain strong compliance with industry standards to meet the needs of global markets.
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="items-center">
                 <Building className="h-10 w-10 text-primary" />
-                <CardTitle className="mt-2">{t.localEmployment}</CardTitle>
+                <CardTitle className="mt-2">Local Employment</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-muted-foreground">
-                {t.localEmploymentDesc}
+                We are proud to contribute to the local economy by providing stable employment opportunities within our community, fostering growth and development in the Etah region.
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="items-center">
                 <Globe className="h-10 w-10 text-primary" />
-                <CardTitle className="mt-2">{t.exportFocus}</CardTitle>
+                <CardTitle className="mt-2">Export Focus</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-muted-foreground">
-                {t.exportFocusDesc}
+                Our operations, packaging, and logistics are optimized for international trade. We are fully equipped to handle bulk orders and serve clients across the globe efficiently and reliably.
               </CardContent>
             </Card>
           </div>
@@ -116,9 +111,9 @@ const AboutPage = async ({ params: { lang } }: { params: { lang: Language['code'
       {/* Certifications Section */}
       <section className="container mx-auto px-4 py-12 md:py-20">
         <div className="text-center">
-          <h2 className="font-headline text-3xl font-bold">{t.certificationsTitle}</h2>
+          <h2 className="font-headline text-3xl font-bold">Our Certifications</h2>
           <p className="mx-auto mt-2 max-w-3xl text-muted-foreground">
-            {t.certificationsSubtitle}
+            Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
           </p>
           <div className="mt-8 flex justify-center gap-4 md:gap-8">
             <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">FSSAI</Badge>

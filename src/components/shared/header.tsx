@@ -4,37 +4,18 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import { getNavLinks } from '@/lib/constants';
+import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Logo from './logo';
 import LanguageSelector from './language-selector';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
 
 
-const Header = ({ lang }: { lang: Language['code'] }) => {
+const Header = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [dictionary, setDictionary] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchDictionary = async () => {
-      const dict = await getDictionary(lang);
-      setDictionary(dict);
-    };
-    fetchDictionary();
-  }, [lang]);
-
-
-  if (!dictionary) {
-    return null; // or a loading skeleton
-  }
-  
-  const NAV_LINKS = getNavLinks(dictionary.Header);
-  const t = dictionary.Header;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -47,10 +28,10 @@ const Header = ({ lang }: { lang: Language['code'] }) => {
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
-              href={`/${lang}${link.href}`}
+              href={link.href}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                pathname === `/${lang}${link.href}` ? 'text-primary' : 'text-muted-foreground'
+                pathname === link.href ? 'text-primary' : 'text-muted-foreground'
               )}
             >
               {link.label}
@@ -62,7 +43,7 @@ const Header = ({ lang }: { lang: Language['code'] }) => {
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSelector />
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href={`/${lang}/contact`}>{t.contactSales}</Link>
+            <Link href="/contact">Contact Sales</Link>
           </Button>
         </div>
 
@@ -83,18 +64,18 @@ const Header = ({ lang }: { lang: Language['code'] }) => {
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
-                href={`/${lang}${link.href}`}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   'rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground',
-                  pathname === `/${lang}${link.href}` ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
+                  pathname === link.href ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
                 )}
               >
                 {link.label}
               </Link>
             ))}
             <Button asChild className="mt-2" onClick={() => setIsMenuOpen(false)}>
-              <Link href={`/${lang}/contact`}>{t.contactSales}</Link>
+              <Link href="/contact">Contact Sales</Link>
             </Button>
           </nav>
         </div>

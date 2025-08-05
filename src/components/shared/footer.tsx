@@ -9,8 +9,6 @@ import {
   FOOTER_LINKS_COMPANY
 } from '@/lib/constants';
 import { Separator } from '../ui/separator';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
 
 const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ElementType }) => (
   <Link href={href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
@@ -18,11 +16,9 @@ const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ElementTyp
   </Link>
 );
 
-const Footer = async ({ lang }: { lang: Language['code'] }) => {
-  const dictionary = await getDictionary(lang);
-  const t = dictionary.Footer;
-  const productLinks = FOOTER_LINKS_PRODUCTS(lang);
-  const companyLinks = FOOTER_LINKS_COMPANY(lang, t);
+const Footer = () => {
+  const productLinks = FOOTER_LINKS_PRODUCTS();
+  const companyLinks = FOOTER_LINKS_COMPANY();
 
   return (
     <footer className="bg-secondary">
@@ -32,13 +28,13 @@ const Footer = async ({ lang }: { lang: Language['code'] }) => {
           <div className="md:col-span-1">
             <Logo />
             <p className="mt-4 text-sm text-muted-foreground">
-              {t.tagline}
+              Your trusted partner for premium B2B chicory solutions.
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">{t.products}</h4>
+            <h4 className="font-headline font-semibold text-foreground">Products</h4>
             <ul className="mt-4 space-y-2">
               {productLinks.map((link) => (
                 <li key={link.href}>
@@ -52,7 +48,7 @@ const Footer = async ({ lang }: { lang: Language['code'] }) => {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">{t.company}</h4>
+            <h4 className="font-headline font-semibold text-foreground">Company</h4>
             <ul className="mt-4 space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.href}>
@@ -66,7 +62,7 @@ const Footer = async ({ lang }: { lang: Language['code'] }) => {
 
           {/* Social Media */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">{t.connectWithUs}</h4>
+            <h4 className="font-headline font-semibold text-foreground">Connect With Us</h4>
             <div className="mt-4 flex space-x-4">
               <SocialIcon href={SOCIAL_LINKS.twitter} icon={Twitter} />
               <SocialIcon href={SOCIAL_LINKS.linkedin} icon={Linkedin} />
@@ -81,7 +77,7 @@ const Footer = async ({ lang }: { lang: Language['code'] }) => {
 
         {/* Copyright */}
         <div className="text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} {BRAND_NAME}. {t.copyright}</p>
+          <p>&copy; {new Date().getFullYear()} {BRAND_NAME}. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

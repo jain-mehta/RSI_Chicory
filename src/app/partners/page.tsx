@@ -4,8 +4,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Star } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
 
 export const metadata: Metadata = {
   title: 'Our Partners | RSI Chicory',
@@ -45,22 +43,19 @@ const partners = [
     { name: 'Premium Foods Ltd.', logo: 'https://images.unsplash.com/photo-1615996025078-7b4c6e866819?q=80&w=160', aiHint: 'company logo' },
 ]
 
-export default async function PartnersPage({ params: { lang } }: { params: { lang: Language['code'] } }) {
-  const dictionary = await getDictionary(lang);
-  const t = dictionary.PartnersPage;
-
+export default function PartnersPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">{t.title}</h1>
+        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">Testimonials & Partners</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          {t.subtitle}
+          We are proud to work with leading companies in the food and beverage industry. Here's what some of them have to say.
         </p>
       </div>
       
       {/* Testimonials Section */}
       <section className="mt-16">
-        <h2 className="text-center font-headline text-3xl font-bold">{t.testimonialsTitle}</h2>
+        <h2 className="text-center font-headline text-3xl font-bold">What Our Clients Say</h2>
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="flex flex-col">
@@ -90,9 +85,9 @@ export default async function PartnersPage({ params: { lang } }: { params: { lan
 
       {/* Partners Section */}
       <section className="mt-20">
-        <h2 className="text-center font-headline text-3xl font-bold">{t.partnersTitle}</h2>
+        <h2 className="text-center font-headline text-3xl font-bold">Our Valued Partners</h2>
         <p className="mx-auto mt-2 max-w-2xl text-center text-muted-foreground">
-            {t.partnersSubtitle}
+            We collaborate with businesses of all sizes, from multinational corporations to artisanal producers.
         </p>
         <div className="mt-10">
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">

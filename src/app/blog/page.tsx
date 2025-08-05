@@ -5,8 +5,6 @@ import { ArrowRight, Rss } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
 
 export const metadata: Metadata = {
   title: 'Blog | RSI Chicory',
@@ -44,30 +42,27 @@ const blogPosts = [
   },
 ];
 
-export default async function BlogPage({ params: { lang } }: { params: { lang: Language['code'] } }) {
-  const dictionary = await getDictionary(lang);
-  const t = dictionary.BlogPage;
-
+export default function BlogPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">{t.title}</h1>
+        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">Industry Insights</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          {t.subtitle}
+          B2B articles on chicory processing, export trends, and market news.
         </p>
       </div>
 
       <Card className="my-12 bg-primary/10">
         <CardContent className="flex flex-col items-center justify-between gap-6 p-8 md:flex-row">
           <div className="text-center md:text-left">
-            <h2 className="font-headline text-2xl font-bold">{t.aiGeneratorTitle}</h2>
+            <h2 className="font-headline text-2xl font-bold">Generate Blog Ideas with AI</h2>
             <p className="mt-2 text-muted-foreground">
-              {t.aiGeneratorDesc}
+              Need content for your own food & beverage blog? Use our AI tool to generate B2B topic ideas instantly.
             </p>
           </div>
           <Button asChild className="shrink-0" size="lg">
-            <Link href={`/${lang}/blog/ai-topic-generator`}>
-              {t.launchGenerator} <Rss className="ml-2 h-5 w-5" />
+            <Link href="/blog/ai-topic-generator">
+              Launch Topic Generator <Rss className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </CardContent>
@@ -93,7 +88,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: L
                 <Button asChild variant="link" className="mt-4 self-start p-0 text-accent">
                     {/* In a real app, this would link to /blog/[slug] */}
                     <Link href="#"> 
-                        {t.readMore} <ArrowRight className="ml-2 h-4 w-4" />
+                        Read More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>
             </CardContent>

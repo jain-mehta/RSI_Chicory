@@ -28,15 +28,10 @@ const formSchema = z.object({
   targetAudience: z.string().min(3, { message: 'Target audience must be at least 3 characters.' }),
 });
 
-type TopicGeneratorFormProps = {
-  dictionary: any;
-};
-
-export function TopicGeneratorForm({ dictionary }: TopicGeneratorFormProps) {
+export function TopicGeneratorForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [topics, setTopics] = useState<string[]>([]);
   const { toast } = useToast();
-  const t = dictionary.AiTopicGeneratorPage;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,9 +64,9 @@ export function TopicGeneratorForm({ dictionary }: TopicGeneratorFormProps) {
     <>
       <Card>
         <CardHeader>
-          <CardTitle>{t.generatorControls}</CardTitle>
+          <CardTitle>Generator Controls</CardTitle>
           <CardDescription>
-            {t.generatorDescription}
+            Provide details about the industry and audience you want to target.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -82,9 +77,9 @@ export function TopicGeneratorForm({ dictionary }: TopicGeneratorFormProps) {
                 name="industry"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t.industryLabel}</FormLabel>
+                    <FormLabel>Industry</FormLabel>
                     <FormControl>
-                      <Input placeholder={t.industryPlaceholder} {...field} />
+                      <Input placeholder="e.g., Beverage Manufacturing, Food Ingredients" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -95,9 +90,9 @@ export function TopicGeneratorForm({ dictionary }: TopicGeneratorFormProps) {
                 name="targetAudience"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t.audienceLabel}</FormLabel>
+                    <FormLabel>Target Audience</FormLabel>
                     <FormControl>
-                      <Input placeholder={t.audiencePlaceholder} {...field} />
+                      <Input placeholder="e.g., R&D Managers, Procurement Specialists" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -105,7 +100,7 @@ export function TopicGeneratorForm({ dictionary }: TopicGeneratorFormProps) {
               />
               <Button type="submit" disabled={isLoading} className="w-full sm:w-auto">
                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isLoading ? t.generatingButton : t.generateButton}
+                {isLoading ? 'Generating...' : 'Generate Topics'}
               </Button>
             </form>
           </Form>
@@ -115,14 +110,14 @@ export function TopicGeneratorForm({ dictionary }: TopicGeneratorFormProps) {
       {(isLoading || topics.length > 0) && (
         <Card className="mt-8">
           <CardHeader>
-            <CardTitle>{t.generatedTopicsTitle}</CardTitle>
-            <CardDescription>{t.generatedTopicsDesc}</CardDescription>
+            <CardTitle>Generated Topics</CardTitle>
+            <CardDescription>Here are some AI-generated ideas for your blog.</CardDescription>
           </CardHeader>
           <CardContent>
             {isLoading ? (
               <div className="flex items-center justify-center py-8">
                 <Loader2 className="mr-2 h-8 w-8 animate-spin text-primary" />
-                <span className="text-muted-foreground">{t.generatingText}</span>
+                <span className="text-muted-foreground">Generating...</span>
               </div>
             ) : (
               <ul className="space-y-4">

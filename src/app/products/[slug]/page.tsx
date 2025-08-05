@@ -9,12 +9,9 @@ import { ContactForm } from '@/components/shared/contact-form';
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
-import { i18n } from '@/i18n.config';
 
 type Props = {
-  params: { slug: string; lang: Language['code'] };
+  params: { slug: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -33,21 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-    const locales = i18n.locales;
-    const productSlugs = products.map((product) => product.slug);
-  
-    return locales.flatMap((lang) =>
-      productSlugs.map((slug) => ({
-        lang,
-        slug,
-      }))
-    );
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
 }
 
-export default async function ProductDetailPage({ params }: Props) {
+export default function ProductDetailPage({ params }: Props) {
   const product = getProductBySlug(params.slug);
-  const dictionary = await getDictionary(params.lang);
-  const t = dictionary.ProductDetailsPage;
 
   if (!product) {
     notFound();
@@ -74,7 +63,7 @@ export default async function ProductDetailPage({ params }: Props) {
           </Card>
           <div className="mt-8 space-y-8">
             <Card>
-              <CardHeader><CardTitle>{t.applications}</CardTitle></CardHeader>
+              <CardHeader><CardTitle>Applications</CardTitle></CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {product.applications.map((app) => (
@@ -84,7 +73,7 @@ export default async function ProductDetailPage({ params }: Props) {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader><CardTitle>{t.processing}</CardTitle></CardHeader>
+              <CardHeader><CardTitle>Processing</CardTitle></CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{product.processing}</p>
               </CardContent>
@@ -96,33 +85,32 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="lg:col-span-2">
           <div className="sticky top-24 space-y-8">
             <Card>
-              <CardHeader><CardTitle>{t.specifications}</CardTitle></CardHeader>
+              <CardHeader><CardTitle>Product Specifications</CardTitle></CardHeader>
               <CardContent>
                 <Table>
                   <TableBody>
-                    <TableRow><TableCell className="font-semibold">{t.origin}</TableCell><TableCell>{product.origin}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">{t.color}</TableCell><TableCell>{product.specs.color}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">{t.form}</TableCell><TableCell>{product.specs.form}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">{t.shelfLife}</TableCell><TableCell>{product.specs.shelfLife}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">{t.packaging}</TableCell><TableCell>{product.packaging}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">{t.price}</TableCell><TableCell className="font-bold text-primary">{product.price}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">{t.moq}</TableCell><TableCell className="font-bold">{product.moq}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Origin</TableCell><TableCell>{product.origin}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Color</TableCell><TableCell>{product.specs.color}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Form</TableCell><TableCell>{product.specs.form}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Shelf Life</TableCell><TableCell>{product.specs.shelfLife}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Packaging</TableCell><TableCell>{product.packaging}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Price</TableCell><TableCell className="font-bold text-primary">{product.price}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">MOQ</TableCell><TableCell className="font-bold">{product.moq}</TableCell></TableRow>
                   </TableBody>
                 </Table>
                 <Button asChild size="lg" className="mt-6 w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                    <Link href={`/${params.lang}/contact?inquiry=sample&product=${product.slug}`}>{t.requestSample}</Link>
+                    <Link href={`/contact?inquiry=sample&product=${product.slug}`}>Request a Sample</Link>
                 </Button>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>{t.enquireNow}</CardTitle>
+                <CardTitle>Enquire Now</CardTitle>
               </CardHeader>
               <CardContent>
                 <ContactForm
                   sourcePage={`Product Page: ${product.name}`}
                   defaultMessage={`I am interested in ${product.name}. Please provide a quote for an estimated quantity of...`}
-                  dictionary={dictionary}
                 />
               </CardContent>
             </Card>

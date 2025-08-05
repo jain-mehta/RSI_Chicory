@@ -5,16 +5,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import type { Product } from '@/lib/products';
 import { ArrowRight } from 'lucide-react';
-import type { Language } from '@/lib/languages';
 
 type ProductCardProps = {
   product: Product;
-  lang: Language['code'];
-  dictionary: any;
 };
 
-export const ProductCard = ({ product, lang, dictionary }: ProductCardProps) => {
-  const t = dictionary.HomePage;
+export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Card className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
       <CardHeader className="p-0">
@@ -31,8 +27,8 @@ export const ProductCard = ({ product, lang, dictionary }: ProductCardProps) => 
         <CardTitle className="mb-2 text-xl">{product.name}</CardTitle>
         <CardDescription className="flex-grow">{product.description}</CardDescription>
         <Button asChild variant="link" className="mt-4 self-start p-0 text-accent">
-          <Link href={`/${lang}/products/${product.slug}`}>
-            {t.viewDetails} <ArrowRight className="ml-2 h-4 w-4" />
+          <Link href={`/products/${product.slug}`}>
+            View Details <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       </CardContent>

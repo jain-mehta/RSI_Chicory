@@ -33,13 +33,11 @@ const formSchema = z.object({
 type ContactFormProps = {
   defaultMessage?: string;
   sourcePage: string;
-  dictionary: any;
 };
 
-export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactFormProps) {
+export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const t = dictionary.ContactForm;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,8 +60,8 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
     
     setIsSubmitting(false);
     toast({
-      title: t.toastTitle,
-      description: t.toastDescription,
+      title: 'Inquiry Sent!',
+      description: 'Thank you for your message. Our sales team will get back to you shortly.',
     });
     form.reset();
   }
@@ -77,9 +75,9 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t.fullName}</FormLabel>
+                <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  <Input placeholder={t.fullNamePlaceholder} {...field} />
+                  <Input placeholder="John Doe" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -90,9 +88,9 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
             name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t.companyName}</FormLabel>
+                <FormLabel>Company Name</FormLabel>
                 <FormControl>
-                  <Input placeholder={t.companyNamePlaceholder} {...field} />
+                  <Input placeholder="Global Coffee Corp" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,9 +103,9 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t.email}</FormLabel>
+                <FormLabel>Email Address</FormLabel>
                 <FormControl>
-                  <Input placeholder={t.emailPlaceholder} {...field} />
+                  <Input placeholder="john.doe@example.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -118,9 +116,9 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t.phone}</FormLabel>
+                <FormLabel>Phone Number (Optional)</FormLabel>
                 <FormControl>
-                  <Input placeholder={t.phonePlaceholder} {...field} />
+                  <Input placeholder="+1-555-123-4567" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -132,10 +130,10 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t.message}</FormLabel>
+              <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder={t.messagePlaceholder}
+                  placeholder="Please describe your inquiry, including product interest and estimated quantity."
                   className="min-h-[120px]"
                   {...field}
                 />
@@ -146,7 +144,7 @@ export function ContactForm({ defaultMessage, sourcePage, dictionary }: ContactF
         />
         <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
           {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          {isSubmitting ? t.sendingButton : t.sendButton}
+          {isSubmitting ? 'Sending...' : 'Send Inquiry'}
         </Button>
       </form>
     </Form>

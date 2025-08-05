@@ -4,24 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE } from '@/lib/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import type { Metadata } from 'next';
-import { getDictionary } from '@/lib/dictionaries';
-import type { Language } from '@/lib/languages';
 
 export const metadata: Metadata = {
   title: 'Contact Us | RSI Chicory',
   description: `Get in touch with the RSI Chicory sales team for B2B inquiries, bulk pricing, and sample requests. Contact us via phone, email, or our online form. Located at ${COMPANY_ADDRESS}.`,
 };
 
-const ContactPage = async ({ params: { lang } }: { params: { lang: Language['code'] } }) => {
-  const dictionary = await getDictionary(lang);
-  const t = dictionary.ContactPage;
+const ContactPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="text-center">
-        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">{t.title}</h1>
+        <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">Contact Our Team</h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-          {t.subtitle}
+          We are ready to assist with your B2B chicory needs. Reach out for bulk pricing, sample requests, or any other questions.
         </p>
       </div>
 
@@ -30,7 +26,7 @@ const ContactPage = async ({ params: { lang } }: { params: { lang: Language['cod
         <div className="space-y-8">
           <Card>
             <CardHeader>
-              <CardTitle>{t.contactDetails}</CardTitle>
+              <CardTitle>Contact Details</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <a href={`tel:${COMPANY_PHONE}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
@@ -49,7 +45,7 @@ const ContactPage = async ({ params: { lang } }: { params: { lang: Language['cod
           </Card>
           <Card>
             <CardHeader>
-                <CardTitle>{t.ourLocation}</CardTitle>
+                <CardTitle>Our Location</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="aspect-video overflow-hidden rounded-md">
@@ -72,10 +68,10 @@ const ContactPage = async ({ params: { lang } }: { params: { lang: Language['cod
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>{t.sendMessage}</CardTitle>
+              <CardTitle>Send us a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <ContactForm sourcePage="Contact Us Page" dictionary={dictionary} />
+              <ContactForm sourcePage="Contact Us Page" />
             </CardContent>
           </Card>
         </div>
