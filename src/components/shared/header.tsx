@@ -1,22 +1,40 @@
-// This component represents the main header of the website.
-// It includes the logo, navigation links, language selector, and a primary contact button.
-// The navigation is designed to be responsive for mobile devices.
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { NAV_LINKS } from '@/lib/constants';
+import { getNavLinks } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Logo from './logo';
 import LanguageSelector from './language-selector';
+import { getDictionary } from '@/lib/dictionaries';
+import type { Language } from '@/lib/languages';
 
-const Header = () => {
+
+const Header = ({ lang }: { lang: Language['code'] }) => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [dictionary, setDictionary] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchDictionary = async () => {
+      const dict = await getDictionary(lang);
+      setDictionary(dict);
+    };
+    fetchDictionary();
+  }, [lang]);
+
+
+  if (!dictionary) {
+    return null; // or a loading skeleton
+  }
+  
+  const NAV_LINKS = getNavLinks(dictionary.Header);
+  const t = dictionary.Header;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -29,10 +47,10 @@ const Header = () => {
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={`/${lang}${link.href}`}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                pathname === link.href ? 'text-primary' : 'text-muted-foreground'
+                pathname === `/${lang}${link.href}` ? 'text-primary' : 'text-muted-foreground'
               )}
             >
               {link.label}
@@ -44,7 +62,7 @@ const Header = () => {
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSelector />
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/contact">Contact Sales</Link>
+            <Link href={`/${lang}/contact`}>{t.contactSales}</Link>
           </Button>
         </div>
 
@@ -65,18 +83,18 @@ const Header = () => {
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={`/${lang}${link.href}`}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   'rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground',
-                  pathname === link.href ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
+                  pathname === `/${lang}${link.href}` ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
                 )}
               >
                 {link.label}
               </Link>
             ))}
             <Button asChild className="mt-2" onClick={() => setIsMenuOpen(false)}>
-              <Link href="/contact">Contact Sales</Link>
+              <Link href={`/${lang}/contact`}>{t.contactSales}</Link>
             </Button>
           </nav>
         </div>

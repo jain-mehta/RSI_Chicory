@@ -1,17 +1,16 @@
-// This component defines the global footer for the website.
-// It includes navigation links, social media icons, and company information,
-// ensuring a consistent and professional end to every page.
 
 import Link from 'next/link';
 import { Twitter, Linkedin, Youtube, Instagram, Facebook } from 'lucide-react';
 import Logo from './logo';
 import {
   BRAND_NAME,
-  FOOTER_LINKS_COMPANY,
-  FOOTER_LINKS_PRODUCTS,
   SOCIAL_LINKS,
+  FOOTER_LINKS_PRODUCTS,
+  FOOTER_LINKS_COMPANY
 } from '@/lib/constants';
 import { Separator } from '../ui/separator';
+import { getDictionary } from '@/lib/dictionaries';
+import type { Language } from '@/lib/languages';
 
 const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ElementType }) => (
   <Link href={href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
@@ -19,7 +18,12 @@ const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ElementTyp
   </Link>
 );
 
-const Footer = () => {
+const Footer = async ({ lang }: { lang: Language['code'] }) => {
+  const dictionary = await getDictionary(lang);
+  const t = dictionary.Footer;
+  const productLinks = FOOTER_LINKS_PRODUCTS(lang);
+  const companyLinks = FOOTER_LINKS_COMPANY(lang, t);
+
   return (
     <footer className="bg-secondary">
       <div className="container mx-auto px-4 py-12">
@@ -28,15 +32,15 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Logo />
             <p className="mt-4 text-sm text-muted-foreground">
-              Your trusted partner for premium B2B chicory solutions.
+              {t.tagline}
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">Products</h4>
+            <h4 className="font-headline font-semibold text-foreground">{t.products}</h4>
             <ul className="mt-4 space-y-2">
-              {FOOTER_LINKS_PRODUCTS.map((link) => (
+              {productLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
                     {link.label}
@@ -48,9 +52,9 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">Company</h4>
+            <h4 className="font-headline font-semibold text-foreground">{t.company}</h4>
             <ul className="mt-4 space-y-2">
-              {FOOTER_LINKS_COMPANY.map((link) => (
+              {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
                     {link.label}
@@ -62,7 +66,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">Connect With Us</h4>
+            <h4 className="font-headline font-semibold text-foreground">{t.connectWithUs}</h4>
             <div className="mt-4 flex space-x-4">
               <SocialIcon href={SOCIAL_LINKS.twitter} icon={Twitter} />
               <SocialIcon href={SOCIAL_LINKS.linkedin} icon={Linkedin} />
@@ -77,7 +81,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} {BRAND_NAME}. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {BRAND_NAME}. {t.copyright}</p>
         </div>
       </div>
     </footer>

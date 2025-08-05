@@ -1,8 +1,9 @@
+
 // This file contains the language data for the language selector.
 import React from 'react';
 
 export type Language = {
-  code: string; // ISO 639-1 language code
+  code: 'EN' | 'ES' | 'FR' | 'DE' | 'AR' | 'ZH'; // ISO 639-1 language code
   name: string;
   countryCode: string; // ISO 3166-1 alpha-2 country code
 };

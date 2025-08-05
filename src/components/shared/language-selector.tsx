@@ -1,9 +1,8 @@
-// This component provides the UI for language selection.
-// It uses local state to manage the currently selected language.
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter } from 'next/navigation';
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,10 +11,31 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LANGUAGES, type Language } from "@/lib/languages.tsx";
+import { LANGUAGES, type Language } from "@/lib/languages";
+import { i18n } from "@/i18n.config";
 
 export function LanguageSelector() {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>(LANGUAGES[0]);
+  const pathname = usePathname();
+  const router = useRouter();
+  
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
+    const currentLangCode = pathname.split('/')[1]?.toUpperCase() as Language['code'] || i18n.defaultLocale;
+    return LANGUAGES.find(lang => lang.code === currentLangCode) || LANGUAGES[0];
+  });
+  
+  useEffect(() => {
+    const currentLangCode = pathname.split('/')[1]?.toUpperCase() as Language['code'] || i18n.defaultLocale;
+    const currentLanguage = LANGUAGES.find(lang => lang.code === currentLangCode);
+    if(currentLanguage) {
+      setSelectedLanguage(currentLanguage);
+    }
+  }, [pathname]);
+
+  const handleLanguageChange = (lang: Language) => {
+    setSelectedLanguage(lang);
+    const newPathname = pathname.replace(`/${pathname.split('/')[1]}`, `/${lang.code.toLowerCase()}`);
+    router.push(newPathname);
+  };
 
   return (
     <DropdownMenu>
@@ -32,7 +52,7 @@ export function LanguageSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {LANGUAGES.map((lang) => (
-          <DropdownMenuItem key={lang.code} onSelect={() => setSelectedLanguage(lang)}>
+          <DropdownMenuItem key={lang.code} onSelect={() => handleLanguageChange(lang)}>
              <ReactCountryFlag
                 countryCode={lang.countryCode}
                 svg
