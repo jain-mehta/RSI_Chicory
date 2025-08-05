@@ -1,13 +1,23 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { products } from '@/lib/products';
+import { products, Product } from '@/lib/products';
 import { ArrowRight, Leaf, Package, Globe, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 4);
+  const featuredProductSlugs = [
+    'roasted-chicory-cubes-dark-roast',
+    'raw-chicory-roots',
+    'liquid-chicory-extract',
+    'roasted-chicory-granules',
+  ];
+
+  const featuredProducts = featuredProductSlugs
+    .map(slug => products.find(p => p.slug === slug))
+    .filter((p): p is Product => p !== undefined);
+
 
   return (
     <div className="flex flex-col">
