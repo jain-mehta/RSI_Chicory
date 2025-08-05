@@ -19,7 +19,7 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale.toLowerCase()}/`) && pathname !== `/${locale.toLowerCase()}`
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
   // Redirect if there is no locale
@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
     const locale = getLocale(request);
     return NextResponse.redirect(
       new URL(
-        `/${locale?.toLowerCase()}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+        `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
         request.url
       )
     );

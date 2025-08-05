@@ -7,6 +7,6 @@ type I18nConfig = {
 }
 
 export const i18n: I18nConfig = {
-  defaultLocale: 'EN',
-  locales: ['EN', 'ES', 'FR', 'DE', 'AR', 'ZH']
+  defaultLocale: 'en',
+  locales: ['en', 'es', 'fr', 'de', 'ar', 'zh']
 };

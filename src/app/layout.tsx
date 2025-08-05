@@ -1,9 +1,17 @@
-// This file is the root layout for the application, but it is not used for rendering.
-// The actual root layout is in src/app/[lang]/layout.tsx.
-// This file is required by Next.js to exist.
+// This file is the root layout for the application.
+// It is required by Next.js to exist and to contain <html> and <body> tags.
 
-import '../app/globals.css';
+import './globals.css';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <html lang="en" className={inter.variable}>
+        <body>
+            {children}
+        </body>
+    </html>
+  );
 }

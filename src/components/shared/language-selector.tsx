@@ -19,12 +19,12 @@ export function LanguageSelector() {
   const router = useRouter();
   
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
-    const currentLangCode = pathname.split('/')[1]?.toUpperCase() as Language['code'] || i18n.defaultLocale;
+    const currentLangCode = pathname.split('/')[1] as Language['code'] || i18n.defaultLocale;
     return LANGUAGES.find(lang => lang.code === currentLangCode) || LANGUAGES[0];
   });
   
   useEffect(() => {
-    const currentLangCode = pathname.split('/')[1]?.toUpperCase() as Language['code'] || i18n.defaultLocale;
+    const currentLangCode = pathname.split('/')[1] as Language['code'] || i18n.defaultLocale;
     const currentLanguage = LANGUAGES.find(lang => lang.code === currentLangCode);
     if(currentLanguage) {
       setSelectedLanguage(currentLanguage);
@@ -47,7 +47,7 @@ export function LanguageSelector() {
               className="mr-2 h-5 w-5"
               title={selectedLanguage.name}
             />
-          {selectedLanguage.code}
+          {selectedLanguage.code.toUpperCase()}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
