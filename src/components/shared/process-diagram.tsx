@@ -10,9 +10,9 @@ import {
   Flame,
   Package,
   Globe,
-  ChevronRight,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 const processSteps = [
   {
@@ -59,33 +59,23 @@ const processSteps = [
 
 export const ProcessDiagram = () => {
   return (
-    <div className="mt-12">
-      <div className="relative">
-        {/* The connecting line - visible on larger screens */}
-        <div className="hidden lg:block absolute left-1/2 top-10 h-[calc(100%-5rem)] w-0.5 -translate-x-1/2 bg-border" />
+    <div className="mt-12 overflow-x-hidden">
+      <div className="grid grid-cols-1 gap-y-8 md:grid-cols-9">
+        {processSteps.map((step, index) => {
+          const isOdd = index % 2 !== 0;
+          const isLast = index === processSteps.length - 1;
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-x-16">
-          {processSteps.map((step, index) => (
+          return (
             <div
               key={index}
-              className={`relative flex items-center gap-6 ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
+              className={cn(
+                'col-span-1 flex items-center md:col-span-4',
+                isOdd ? 'md:col-start-6' : 'md:col-start-1'
+              )}
             >
-              <div className="relative z-10 hidden items-center justify-center lg:flex">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <step.icon className="h-6 w-6" />
-                </span>
-                {/* Horizontal connector */}
-                <div
-                  className={`absolute w-8 border-t-2 border-dashed border-border ${
-                    index % 2 === 1 ? '-right-4' : '-left-4'
-                  }`}
-                />
-              </div>
               <Card className="w-full transition-shadow hover:shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2">
-                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary lg:hidden">
+                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <step.icon className="h-5 w-5" />
                   </span>
                   <CardTitle>{step.title}</CardTitle>
@@ -95,7 +85,30 @@ export const ProcessDiagram = () => {
                 </CardContent>
               </Card>
             </div>
-          ))}
+          );
+        })}
+
+        {/* Desktop-only graphic connectors */}
+        <div className="hidden md:col-span-9 md:grid md:grid-cols-9 md:grid-rows-7">
+          {processSteps.map((_, index) => {
+            if (index >= processSteps.length - 1) return null;
+            const isOdd = index % 2 !== 0;
+            const row = index + 1;
+
+            return (
+              <div
+                key={`line-${index}`}
+                className={cn(
+                  'relative col-span-1 row-span-1',
+                  isOdd ? 'col-start-5' : 'col-start-5',
+                  `row-start-${row}`
+                )}
+              >
+                <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border" />
+                <div className={cn("absolute top-1/2 h-0.5 w-full bg-border", isOdd ? "right-1/2" : "left-1/2")} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

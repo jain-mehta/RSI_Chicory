@@ -22,8 +22,8 @@ const AboutPage = () => {
           src="https://images.unsplash.com/photo-1549488344-cbb6c144a423?q=80&w=1920"
           alt="Chicory processing facility"
           data-ai-hint="factory exterior"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
