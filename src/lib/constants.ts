@@ -6,10 +6,10 @@ import { products } from './products';
 export const COMPANY_NAME = "RS Impex";
 export const BRAND_NAME = "RSI Chicory";
 export const COMPANY_ESTABLISHED = 2025;
-export const COMPANY_PHONE = "+91 9810550456";
+export const COMPANY_PHONE = "+91 7610045456";
 export const COMPANY_EMAIL = "rsichicory@gmail.com";
 export const COMPANY_ADDRESS = "X-19, UPSIDC-IA, GT Rd, Etah, Uttar Pradesh 207001, India";
-export const WHATSAPP_NUMBER = "919810550456"; // Use number without '+' or spaces for the link
+export const WHATSAPP_NUMBER = "917610045456"; // Use number without '+' or spaces for the link
 
 // Navigation Links
 export const NAV_LINKS = [
