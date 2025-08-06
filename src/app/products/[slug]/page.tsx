@@ -45,9 +45,9 @@ export default function ProductDetailPage({ params }: Props) {
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
         {/* Product Images and Details */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-1">
           <div className="mb-8">
             <h1 className="font-headline text-4xl font-bold">{product.name}</h1>
             <p className="mt-4 text-lg text-muted-foreground">{product.description}</p>
@@ -57,8 +57,8 @@ export default function ProductDetailPage({ params }: Props) {
               src={product.image}
               alt={product.name}
               data-ai-hint={product.aiHint}
-              width={800}
-              height={600}
+              width={600}
+              height={450}
               className="w-full object-cover"
             />
           </Card>
@@ -98,7 +98,7 @@ export default function ProductDetailPage({ params }: Props) {
         </div>
 
         {/* Product Specs and Inquiry Form */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-1">
           <div className="sticky top-24 space-y-8">
             <Card>
               <CardHeader><CardTitle>Product Specifications</CardTitle></CardHeader>
