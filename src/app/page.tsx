@@ -42,7 +42,7 @@ export default function Home() {
               height: '1.5em',
               borderRadius: '50%',
               border: '2px solid white',
-              fontSize: '0.4em',
+              fontSize: '0.3em',
               marginLeft: '0.2em',
               fontWeight: 'normal',
               verticalAlign: 'super',
