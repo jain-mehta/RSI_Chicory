@@ -20,7 +20,7 @@ const XLogo = () => (
 
 
 const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ElementType }) => (
-  <Link href={href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+  <Link href={href} target="_blank" rel="noopener noreferrer" className="text-primary-foreground transition-colors hover:text-primary-foreground/80">
     <Icon />
   </Link>
 );
@@ -30,24 +30,24 @@ const Footer = () => {
   const companyLinks = FOOTER_LINKS_COMPANY();
 
   return (
-    <footer className="bg-secondary">
+    <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Company Info */}
           <div className="md:col-span-1">
             <Logo />
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-primary-foreground/90">
               Your trusted partner for premium B2B chicory solutions.
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">Products</h4>
+            <h4 className="font-headline font-semibold text-primary-foreground">Products</h4>
             <ul className="mt-4 space-y-2">
               {productLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  <Link href={link.href} className="text-sm text-primary-foreground/90 transition-colors hover:text-primary-foreground">
                     {link.label}
                   </Link>
                 </li>
@@ -57,11 +57,11 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">Company</h4>
+            <h4 className="font-headline font-semibold text-primary-foreground">Company</h4>
             <ul className="mt-4 space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  <Link href={link.href} className="text-sm text-primary-foreground/90 transition-colors hover:text-primary-foreground">
                     {link.label}
                   </Link>
                 </li>
@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h4 className="font-headline font-semibold text-foreground">Connect With Us</h4>
+            <h4 className="font-headline font-semibold text-primary-foreground">Connect With Us</h4>
             <div className="mt-4 flex space-x-4">
               <SocialIcon href={SOCIAL_LINKS.twitter} icon={XLogo} />
               <SocialIcon href={SOCIAL_LINKS.linkedin} icon={Linkedin} />
@@ -82,10 +82,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-8 bg-primary-foreground/20" />
 
         {/* Copyright */}
-        <div className="text-center text-sm text-muted-foreground">
+        <div className="text-center text-sm text-primary-foreground/90">
           <p>&copy; {new Date().getFullYear()} {BRAND_NAME}. All Rights Reserved.</p>
         </div>
       </div>
