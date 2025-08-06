@@ -141,7 +141,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                         </FormControl>
                         <SelectContent>
                         {COUNTRIES.map((country) => (
-                            <SelectItem key={country.code} value={country.dialCode}>
+                            <SelectItem key={`${country.code}-${country.dialCode}`} value={country.dialCode}>
                             <div className="flex items-center gap-2">
                                 <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
                                 <span>{country.dialCode}</span>
