@@ -43,7 +43,7 @@ const Header = () => {
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSelector />
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link href="/contact">Contact Sales</Link>
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
 
@@ -75,7 +75,7 @@ const Header = () => {
               </Link>
             ))}
             <Button asChild className="mt-2" onClick={() => setIsMenuOpen(false)}>
-              <Link href="/contact">Contact Sales</Link>
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </nav>
         </div>
