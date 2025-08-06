@@ -87,7 +87,7 @@ const ContactPage = () => {
                 </p>
                 <div className="mt-8 aspect-video overflow-hidden rounded-lg shadow-md">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.901597818967!2d78.6750033150522!3d27.56499998285141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974e7a9b8b6932f%3A0x1d5f6618e3251b53!2sUPSIDC%20Industrial%20Area%2C%20Etah%2C%20Uttar%20Pradesh%20207001%2C%20India!5e0!3m2!1sen!2sus!4v1678886400000!5m2!1sen!2sus"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.901597818967!2d78.6750033150522!3d27.56499998285141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974e7991e771c77%3A0x2966e3c63948695!2sR.S.%20IMPEX!5e0!3m2!1sen!2sus!4v1678886400001!5m2!1sen!2sus"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
