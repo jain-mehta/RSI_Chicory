@@ -39,6 +39,9 @@ const formSchema = z.object({
   countryCode: z.string().optional(),
   phone: z.string().optional(),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }).max(500),
+}).refine(data => (data.phone ? !!data.countryCode : true), {
+    message: "Country code is required if phone number is provided.",
+    path: ["countryCode"],
 });
 
 type ContactFormProps = {
@@ -165,7 +168,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                 )}
                 />
             </div>
-            <FormMessage>{form.formState.errors.phone?.message}</FormMessage>
+            <FormMessage>{form.formState.errors.phone?.message || form.formState.errors.countryCode?.message}</FormMessage>
         </div>
 
         <FormField
