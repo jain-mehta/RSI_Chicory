@@ -23,7 +23,7 @@ export const NAV_LINKS = [
 // Social Media Links
 export const SOCIAL_LINKS = {
   twitter: "https://twitter.com",
-  linkedin: "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/company/rsi-chicory",
   youtube: "https://youtube.com",
   instagram: "https://instagram.com",
   facebook: "https://facebook.com",

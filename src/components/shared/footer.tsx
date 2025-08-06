@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Twitter, Linkedin, Youtube, Instagram, Facebook } from 'lucide-react';
+import { Linkedin, Youtube, Instagram, Facebook } from 'lucide-react';
 import Logo from './logo';
 import {
   BRAND_NAME,
@@ -10,9 +10,18 @@ import {
 } from '@/lib/constants';
 import { Separator } from '../ui/separator';
 
+const XLogo = () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-current">
+        <g>
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+        </g>
+    </svg>
+);
+
+
 const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ElementType }) => (
   <Link href={href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
-    <Icon className="h-6 w-6" />
+    <Icon />
   </Link>
 );
 
@@ -64,7 +73,7 @@ const Footer = () => {
           <div>
             <h4 className="font-headline font-semibold text-foreground">Connect With Us</h4>
             <div className="mt-4 flex space-x-4">
-              <SocialIcon href={SOCIAL_LINKS.twitter} icon={Twitter} />
+              <SocialIcon href={SOCIAL_LINKS.twitter} icon={XLogo} />
               <SocialIcon href={SOCIAL_LINKS.linkedin} icon={Linkedin} />
               <SocialIcon href={SOCIAL_LINKS.youtube} icon={Youtube} />
               <SocialIcon href={SOCIAL_LINKS.instagram} icon={Instagram} />
