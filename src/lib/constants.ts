@@ -30,7 +30,7 @@ export const SOCIAL_LINKS = {
 
 // Footer Links
 export const FOOTER_LINKS_PRODUCTS = () => [
-    { href: "/products/roasted-chicory-cubes-dark-roast", label: "Roasted Chicory Cubes" },
+    { href: "/products/roasted-chicory-cubes", label: "Roasted Chicory Cubes" },
     { href: "/products/dried-chicory-cubes", label: "Dried Chicory Cubes" },
     { href: "/products/liquid-chicory-extract", label: "Liquid Chicory Extract" },
     { href: "/products/roasted-chicory-powder", label: "Roasted Chicory Powder" },

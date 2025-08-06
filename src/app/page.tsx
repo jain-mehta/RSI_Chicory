@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const featuredProductSlugs = [
-    'roasted-chicory-cubes-dark-roast',
+    'roasted-chicory-cubes',
     'raw-chicory-roots',
     'liquid-chicory-extract',
     'roasted-chicory-granules',

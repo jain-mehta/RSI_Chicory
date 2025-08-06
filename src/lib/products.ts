@@ -17,6 +17,7 @@ export type Product = {
   packaging: string;
   moq: string; // Minimum Order Quantity
   price: string; // Price per unit
+  options?: { title: string; values: string[] };
 };
 
 export const products: Product[] = [
@@ -57,40 +58,26 @@ export const products: Product[] = [
     price: "₹20,000 / Metric Ton",
   },
   {
-    name: "Roasted Chicory Cubes (Dark Roast)",
-    slug: "roasted-chicory-cubes-dark-roast",
+    name: "Roasted Chicory Cubes",
+    slug: "roasted-chicory-cubes",
     image: "https://images.unsplash.com/photo-1605941833825-78363787324c?q=80&w=600",
     aiHint: "roasted coffee beans",
-    description: "Uniformly roasted chicory cubes with a deep, dark color and a robust, coffee-like flavor. Our state-of-the-art roasting process ensures a consistent, high-quality product for superior coffee blends.",
+    description: "Uniformly roasted chicory cubes available in both light and dark roasts. Our state-of-the-art roasting process ensures a consistent, high-quality product for superior coffee blends and food applications.",
     origin: "India",
-    processing: "Dried chicory cubes are roasted in-house using advanced roasting technology to achieve a specific dark roast profile.",
-    applications: ["Coffee blending (imparts dark color and strong flavor)", "Instant coffee manufacturing"],
+    processing: "Dried chicory cubes are roasted in-house using advanced technology. We offer distinct roast profiles to meet diverse flavor requirements, from milder, caramel notes (light roast) to a robust, coffee-like flavor (dark roast).",
+    applications: ["Coffee blending", "Instant coffee manufacturing", "Food flavoring", "Health beverages"],
     specs: {
-      color: "Dark brown to black",
+      color: "Golden brown to dark brown",
       form: "Cubes (approx. 8-12mm)",
       shelfLife: "24 months",
     },
     packaging: "Lined PP bags to preserve freshness, 35kg standard.",
     moq: "500 kg",
-    price: "₹75 / kg",
-  },
-  {
-    name: "Roasted Chicory Cubes (Light Roast)",
-    slug: "roasted-chicory-cubes-light-roast",
-    image: "https://images.unsplash.com/photo-1559138808-f4a47b5a1f1e?q=80&w=600",
-    aiHint: "light roasted coffee",
-    description: "Lightly roasted chicory cubes that offer a milder, more subtle flavor with caramel notes. Perfect for applications where a less intense chicory flavor is desired, complementing the primary ingredients.",
-    origin: "India",
-    processing: "Dried chicory cubes are carefully roasted to a lighter profile, preserving delicate flavors and achieving a golden-brown color.",
-    applications: ["Specialty coffee blends", "Food flavoring", "Health beverages"],
-    specs: {
-      color: "Golden brown",
-      form: "Cubes (approx. 8-12mm)",
-      shelfLife: "24 months",
-    },
-    packaging: "35kg lined PP bags.",
-    moq: "500 kg",
-    price: "₹70 / kg",
+    price: "From ₹70-75 / kg",
+    options: {
+      title: "Available Roast Levels",
+      values: ["Light Roast", "Dark Roast"],
+    }
   },
   {
     name: "Dried Chicory Cubes",

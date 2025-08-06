@@ -9,6 +9,7 @@ import { ContactForm } from '@/components/shared/contact-form';
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { CheckCircle } from 'lucide-react';
 
 type Props = {
   params: { slug: string };
@@ -62,6 +63,21 @@ export default function ProductDetailPage({ params }: Props) {
             />
           </Card>
           <div className="mt-8 space-y-8">
+             {product.options && (
+              <Card>
+                <CardHeader><CardTitle>{product.options.title}</CardTitle></CardHeader>
+                <CardContent>
+                    <ul className="space-y-2">
+                    {product.options.values.map((opt) => (
+                        <li key={opt} className="flex items-center gap-2">
+                            <CheckCircle className="h-5 w-5 text-primary" />
+                            <span className="text-muted-foreground">{opt}</span>
+                        </li>
+                    ))}
+                    </ul>
+                </CardContent>
+              </Card>
+            )}
             <Card>
               <CardHeader><CardTitle>Applications</CardTitle></CardHeader>
               <CardContent>
