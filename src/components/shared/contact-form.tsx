@@ -110,61 +110,64 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
             )}
           />
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <FormField
+        
+        <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
+                <FormItem>
                 <FormLabel>Email Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="john.doe@example.com" {...field} />
+                    <Input placeholder="john.doe@example.com" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+                </FormItem>
             )}
-          />
-           <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                 <FormLabel>Phone Number (Optional)</FormLabel>
-                <div className="flex gap-2">
-                   <FormField
-                    control={form.control}
-                    name="countryCode"
-                    render={({ field: countryCodeField }) => (
-                      <FormItem className="w-28">
-                         <Select onValueChange={countryCodeField.onChange} defaultValue={countryCodeField.value}>
-                            <FormControl>
-                                <SelectTrigger>
-                                <SelectValue placeholder="Code" />
-                                </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                                {COUNTRIES.map((country) => (
-                                <SelectItem key={country.code} value={country.dialCode}>
-                                    <div className="flex items-center gap-2">
-                                    <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
-                                    <span>{country.dialCode}</span>
-                                    </div>
-                                </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                      </FormItem>
-                    )}
-                  />
-                  <FormControl>
-                    <Input placeholder="555-123-4567" {...field} />
-                  </FormControl>
-                </div>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            />
+
+        <div>
+            <FormLabel>Phone Number (Optional)</FormLabel>
+            <div className="mt-2 flex gap-2">
+                <FormField
+                control={form.control}
+                name="countryCode"
+                render={({ field }) => (
+                    <FormItem className="w-28 flex-shrink-0">
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Code" />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                        {COUNTRIES.map((country) => (
+                            <SelectItem key={country.code} value={country.dialCode}>
+                            <div className="flex items-center gap-2">
+                                <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
+                                <span>{country.dialCode}</span>
+                            </div>
+                            </SelectItem>
+                        ))}
+                        </SelectContent>
+                    </Select>
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                    <FormItem className="flex-grow">
+                    <FormControl>
+                        <Input placeholder="555-123-4567" {...field} />
+                    </FormControl>
+                    </FormItem>
+                )}
+                />
+            </div>
+            <FormMessage>{form.formState.errors.phone?.message}</FormMessage>
         </div>
+
         <FormField
           control={form.control}
           name="message"
