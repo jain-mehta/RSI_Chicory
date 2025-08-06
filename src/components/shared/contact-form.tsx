@@ -30,14 +30,23 @@ import {
 } from '@/components/ui/select';
 import { COUNTRIES } from '@/lib/country-codes';
 import ReactCountryFlag from 'react-country-flag';
+import { products } from '@/lib/products';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Check, ChevronsUpDown } from 'lucide-react';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  firstName: z.string().min(1, { message: 'First name is required.' }),
+  lastName: z.string().min(1, { message: 'Last name is required.' }),
   company: z.string().min(2, { message: 'Company name is required.' }),
+  companyAddress: z.string().min(5, { message: 'Company address is required.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   countryCode: z.string().optional(),
   phone: z.string().optional(),
+  productInterest: z.array(z.string()).min(1, { message: 'Please select at least one product.' }),
+  expectedQuantity: z.string().min(1, { message: 'Expected quantity is required.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }).max(500),
 }).refine(data => (data.phone ? !!data.countryCode : true), {
     message: "Country code is required if phone number is provided.",
@@ -49,6 +58,11 @@ type ContactFormProps = {
   sourcePage: string;
 };
 
+const FormLabelWithAsterisk = ({ children }: { children: React.ReactNode }) => (
+    <FormLabel>{children} <span className="text-destructive">*</span></FormLabel>
+);
+
+
 export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -56,19 +70,21 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
+      firstName: '',
+      lastName: '',
       company: '',
+      companyAddress: '',
       email: '',
       countryCode: 'IN:+91',
       phone: '',
+      productInterest: [],
+      expectedQuantity: '',
       message: defaultMessage || '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // In a real application, you would send this data to a server endpoint.
-    // We'll simulate an API call here.
     const fullPhoneNumber = values.phone && values.countryCode ? `${values.countryCode.split(':')[1]}${values.phone}` : '';
     console.log({ ...values, phone: fullPhoneNumber, sourcePage });
     
@@ -82,18 +98,20 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
     form.reset();
   }
 
+  const productOptions = products.map(p => ({ label: p.name, value: p.slug }));
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <FormField
             control={form.control}
-            name="name"
+            name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabelWithAsterisk>First Name</FormLabelWithAsterisk>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="John" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -101,10 +119,25 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
           />
           <FormField
             control={form.control}
+            name="lastName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabelWithAsterisk>Last Name</FormLabelWithAsterisk>
+                <FormControl>
+                  <Input placeholder="Doe" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <FormField
+            control={form.control}
             name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Company Name</FormLabel>
+                <FormLabelWithAsterisk>Company Name</FormLabelWithAsterisk>
                 <FormControl>
                   <Input placeholder="Global Coffee Corp" {...field} />
                 </FormControl>
@@ -112,14 +145,27 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
               </FormItem>
             )}
           />
-        </div>
+        
+        <FormField
+            control={form.control}
+            name="companyAddress"
+            render={({ field }) => (
+                <FormItem>
+                <FormLabelWithAsterisk>Company Address</FormLabelWithAsterisk>
+                <FormControl>
+                    <Input placeholder="123 Business Rd, Suite 100, City, Country" {...field} />
+                </FormControl>
+                <FormMessage />
+                </FormItem>
+            )}
+        />
         
         <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Email Address</FormLabel>
+                <FormLabelWithAsterisk>Email Address</FormLabelWithAsterisk>
                 <FormControl>
                     <Input placeholder="john.doe@example.com" {...field} />
                 </FormControl>
@@ -135,7 +181,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                 control={form.control}
                 name="countryCode"
                 render={({ field }) => (
-                    <FormItem className="w-32 flex-shrink-0">
+                    <FormItem className="w-40 flex-shrink-0">
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
@@ -173,13 +219,95 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
 
         <FormField
           control={form.control}
+          name="productInterest"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabelWithAsterisk>Product Interest</FormLabelWithAsterisk>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className={cn(
+                        "w-full justify-between h-auto min-h-10",
+                        !field.value?.length && "text-muted-foreground"
+                      )}
+                    >
+                      <div className="flex gap-1 flex-wrap">
+                        {field.value?.length > 0 ? field.value.map(val => (
+                          <Badge variant="secondary" key={val}>
+                            {productOptions.find(p => p.value === val)?.label}
+                          </Badge>
+                        )) : "Select products"}
+                      </div>
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                  <Command>
+                    <CommandInput placeholder="Search products..." />
+                    <CommandEmpty>No product found.</CommandEmpty>
+                    <CommandList>
+                      <CommandGroup>
+                        {productOptions.map((option) => (
+                          <CommandItem
+                            value={option.value}
+                            key={option.value}
+                            onSelect={() => {
+                              const currentValue = field.value || [];
+                              const isSelected = currentValue.includes(option.value);
+                              const newValue = isSelected
+                                ? currentValue.filter((v) => v !== option.value)
+                                : [...currentValue, option.value];
+                              field.onChange(newValue);
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                (field.value || []).includes(option.value)
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                            {option.label}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+         <FormField
+            control={form.control}
+            name="expectedQuantity"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabelWithAsterisk>Expected Quantity</FormLabelWithAsterisk>
+                <FormControl>
+                  <Input placeholder="e.g., 5 Metric Tons, 1000 kg" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+        <FormField
+          control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabelWithAsterisk>Message</FormLabelWithAsterisk>
               <FormControl>
                 <Textarea
-                  placeholder="Please describe your inquiry, including product interest and estimated quantity."
+                  placeholder="Please describe your inquiry."
                   className="min-h-[120px]"
                   {...field}
                 />
