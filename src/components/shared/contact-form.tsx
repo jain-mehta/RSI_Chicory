@@ -189,146 +189,151 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
           )}
         />
         
-        <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-                <FormItem>
-                <FormLabelWithAsterisk>Email Address</FormLabelWithAsterisk>
-                <FormControl>
-                    <Input placeholder="john.doe@example.com" {...field} />
-                </FormControl>
-                <FormMessage />
-                </FormItem>
-            )}
-            />
-
-        <div>
-            <FormLabel>Phone Number</FormLabel>
-            <div className="mt-2 flex gap-2">
-                <FormField
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <FormField
                 control={form.control}
-                name="countryCode"
+                name="email"
                 render={({ field }) => (
-                    <FormItem className="w-40 flex-shrink-0">
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Code" />
-                        </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <ScrollArea className='h-72'>
-                            {COUNTRIES.map((country) => (
-                                <SelectItem key={`${country.code}:${country.dialCode}`} value={`${country.code}:${country.dialCode}`}>
-                                <div className="flex items-center gap-2">
-                                    <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
-                                    <span>{country.dialCode}</span>
-                                </div>
-                                </SelectItem>
-                            ))}
-                          </ScrollArea>
-                        </SelectContent>
-                    </Select>
-                    </FormItem>
-                )}
-                />
-                <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                    <FormItem className="flex-grow">
+                    <FormItem>
+                    <FormLabelWithAsterisk>Email Address</FormLabelWithAsterisk>
                     <FormControl>
-                        <Input placeholder="555-123-4567" {...field} />
+                        <Input placeholder="john.doe@example.com" {...field} />
                     </FormControl>
+                    <FormMessage />
                     </FormItem>
                 )}
                 />
+
+            <div>
+                <FormLabel>Phone Number</FormLabel>
+                <div className="mt-2 flex gap-2">
+                    <FormField
+                    control={form.control}
+                    name="countryCode"
+                    render={({ field }) => (
+                        <FormItem className="w-40 flex-shrink-0">
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Code" />
+                            </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <ScrollArea className='h-72'>
+                                {COUNTRIES.map((country) => (
+                                    <SelectItem key={`${country.code}:${country.dialCode}`} value={`${country.code}:${country.dialCode}`}>
+                                    <div className="flex items-center gap-2">
+                                        <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
+                                        <span>{country.dialCode}</span>
+                                    </div>
+                                    </SelectItem>
+                                ))}
+                              </ScrollArea>
+                            </SelectContent>
+                        </Select>
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                        <FormItem className="flex-grow">
+                        <FormControl>
+                            <Input placeholder="555-123-4567" {...field} />
+                        </FormControl>
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <FormMessage>{form.formState.errors.phone?.message || form.formState.errors.countryCode?.message}</FormMessage>
             </div>
-            <FormMessage>{form.formState.errors.phone?.message || form.formState.errors.countryCode?.message}</FormMessage>
         </div>
 
-        <FormField
-          control={form.control}
-          name="productInterest"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabelWithAsterisk>Product Interest</FormLabelWithAsterisk>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      className={cn(
-                        "w-full justify-between h-auto min-h-10",
-                        !field.value?.length && "text-muted-foreground"
-                      )}
-                    >
-                      <div className="flex gap-1 flex-wrap">
-                        {field.value?.length > 0 ? field.value.map(val => (
-                          <Badge variant="secondary" key={val}>
-                            {productOptions.find(p => p.value === val)?.label}
-                          </Badge>
-                        )) : "Select products"}
-                      </div>
-                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-                  <Command>
-                    <CommandInput placeholder="Search products..." />
-                    <CommandEmpty>No product found.</CommandEmpty>
-                    <CommandList>
-                      <CommandGroup>
-                        {productOptions.map((option) => (
-                          <CommandItem
-                            value={option.value}
-                            key={option.value}
-                            onSelect={() => {
-                              const currentValue = field.value || [];
-                              const isSelected = currentValue.includes(option.value);
-                              const newValue = isSelected
-                                ? currentValue.filter((v) => v !== option.value)
-                                : [...currentValue, option.value];
-                              field.onChange(newValue);
-                            }}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                (field.value || []).includes(option.value)
-                                  ? "opacity-100"
-                                  : "opacity-0"
-                              )}
-                            />
-                            {option.label}
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </CommandList>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <FormField
+              control={form.control}
+              name="productInterest"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabelWithAsterisk>Product Interest</FormLabelWithAsterisk>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className={cn(
+                            "w-full justify-between h-auto min-h-10",
+                            !field.value?.length && "text-muted-foreground"
+                          )}
+                        >
+                          <div className="flex gap-1 flex-wrap">
+                            {field.value?.length > 0 ? field.value.map(val => (
+                              <Badge variant="secondary" key={val}>
+                                {productOptions.find(p => p.value === val)?.label}
+                              </Badge>
+                            )) : "Select products"}
+                          </div>
+                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                      <Command>
+                        <CommandInput placeholder="Search products..." />
+                        <CommandEmpty>No product found.</CommandEmpty>
+                        <CommandList>
+                          <CommandGroup>
+                            {productOptions.map((option) => (
+                              <CommandItem
+                                value={option.value}
+                                key={option.value}
+                                onSelect={() => {
+                                  const currentValue = field.value || [];
+                                  const isSelected = currentValue.includes(option.value);
+                                  const newValue = isSelected
+                                    ? currentValue.filter((v) => v !== option.value)
+                                    : [...currentValue, option.value];
+                                  field.onChange(newValue);
+                                }}
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    (field.value || []).includes(option.value)
+                                      ? "opacity-100"
+                                      : "opacity-0"
+                                  )}
+                                />
+                                {option.label}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-         <FormField
-            control={form.control}
-            name="expectedQuantity"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabelWithAsterisk>Expected Quantity</FormLabelWithAsterisk>
-                <FormControl>
-                  <Input placeholder="e.g., 5 Metric Tons, 1000 kg" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            <FormField
+                control={form.control}
+                name="expectedQuantity"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabelWithAsterisk>Expected Quantity</FormLabelWithAsterisk>
+                    <FormControl>
+                      <Input placeholder="e.g., 5 Metric Tons, 1000 kg" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+        </div>
+
 
         <FormField
           control={form.control}
