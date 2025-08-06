@@ -1,12 +1,16 @@
 
 import Link from 'next/link';
-import { Linkedin, Youtube, Instagram, Facebook } from 'lucide-react';
+import { Linkedin, Youtube, Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import Logo from './logo';
 import {
   BRAND_NAME,
   SOCIAL_LINKS,
   FOOTER_LINKS_PRODUCTS,
-  FOOTER_LINKS_COMPANY
+  FOOTER_LINKS_COMPANY,
+  COMPANY_ADDRESS,
+  COMPANY_EMAIL,
+  COMPANY_PHONE,
+  COMPANY_NAME
 } from '@/lib/constants';
 import { Separator } from '../ui/separator';
 
@@ -34,11 +38,25 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Company Info */}
-          <div className="md:col-span-1">
+          <div className="space-y-4 md:col-span-1">
             <Logo />
-            <p className="mt-4 text-sm text-primary-foreground/90">
-              Your trusted partner for premium B2B chicory solutions.
+            <p className="text-sm text-primary-foreground/90">
+                {COMPANY_NAME} - Premium chicory manufacturer and supplier. Established 2025, serving global B2B markets with quality chicory products from contract farming to export.
             </p>
+            <div className='space-y-2 text-sm text-primary-foreground/90'>
+                <div className='flex items-start gap-2'>
+                    <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+                    <span>{COMPANY_ADDRESS}</span>
+                </div>
+                 <div className='flex items-center gap-2'>
+                    <Phone className="h-4 w-4 shrink-0" />
+                    <a href={`tel:${COMPANY_PHONE}`} className="hover:underline">{COMPANY_PHONE}</a>
+                </div>
+                 <div className='flex items-center gap-2'>
+                    <Mail className="h-4 w-4 shrink-0" />
+                    <a href={`mailto:${COMPANY_EMAIL}`} className="hover:underline">{COMPANY_EMAIL}</a>
+                </div>
+            </div>
           </div>
 
           {/* Product Links */}
@@ -94,3 +112,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
