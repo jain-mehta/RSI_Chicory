@@ -120,8 +120,8 @@ const ContactPage = () => {
                         </p>
                         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <Button asChild>
-                                <a href={`tel:${COMPANY_PHONE_2}`}>
-                                    <Phone /> Call: {COMPANY_PHONE_2}
+                                <a href={`tel:${COMPANY_PHONE_1}`}>
+                                    <Phone /> Call: {COMPANY_PHONE_1}
                                 </a>
                             </Button>
                             <Button asChild variant="outline">

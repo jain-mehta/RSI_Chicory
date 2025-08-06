@@ -32,8 +32,8 @@ export default function Home() {
           className="z-0"
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
-          <h1 className="font-headline text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl">
+        <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 text-center text-white">
+          <h1 className="font-headline text-3xl font-bold tracking-tight text-primary-foreground md:text-6xl">
             <span style={{color: '#00008B'}}>RS</span><span style={{color: '#B81C22'}}>I</span> Chicor<sup style={{
               display: 'inline-flex',
               alignItems: 'center',

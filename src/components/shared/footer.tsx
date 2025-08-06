@@ -37,9 +37,9 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
-          <div className="space-y-4 md:col-span-1">
+          <div className="space-y-4 md:col-span-2 lg:col-span-1">
             <Logo />
             <p className="text-sm text-primary-foreground/90">
                 {COMPANY_NAME} - Premium chicory manufacturer and supplier. Established 2025, serving global B2B markets with quality chicory products from contract farming to export.
