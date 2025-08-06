@@ -69,7 +69,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
     setIsSubmitting(true);
     // In a real application, you would send this data to a server endpoint.
     // We'll simulate an API call here.
-    const fullPhoneNumber = values.phone && values.countryCode ? `${values.countryCode.split(':')[1]} ${values.phone}` : '';
+    const fullPhoneNumber = values.phone && values.countryCode ? `${values.countryCode.split(':')[1]}${values.phone}` : '';
     console.log({ ...values, phone: fullPhoneNumber, sourcePage });
     
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -135,7 +135,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                 control={form.control}
                 name="countryCode"
                 render={({ field }) => (
-                    <FormItem className="w-40 flex-shrink-0">
+                    <FormItem className="w-32 flex-shrink-0">
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
@@ -144,7 +144,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                         </FormControl>
                         <SelectContent>
                         {COUNTRIES.map((country) => (
-                            <SelectItem key={country.code} value={`${country.code}:${country.dialCode}`}>
+                            <SelectItem key={`${country.code}:${country.dialCode}`} value={`${country.code}:${country.dialCode}`}>
                             <div className="flex items-center gap-2">
                                 <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
                                 <span>{country.dialCode}</span>
