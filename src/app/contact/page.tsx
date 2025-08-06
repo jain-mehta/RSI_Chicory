@@ -5,6 +5,7 @@ import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE_1, COMPANY_PHONE_2 } from
 import { Mail, Phone, MapPin, LineChart, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Contact Us | RSI Chicory',
@@ -108,6 +109,30 @@ const ContactPage = () => {
                     </Card>
                 </div>
             </div>
+
+            {/* Immediate Assistance Section */}
+            <section className="mt-20">
+                <Card className="bg-secondary">
+                    <CardContent className="p-8 text-center">
+                        <h2 className="text-2xl font-bold">Need Immediate Assistance?</h2>
+                        <p className="mx-auto mt-2 max-w-2xl text-muted-foreground">
+                            Our sales team is ready to help with your chicory requirements. Contact us directly for faster response.
+                        </p>
+                        <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                            <Button asChild>
+                                <a href={`tel:${COMPANY_PHONE_2}`}>
+                                    <Phone /> Call: {COMPANY_PHONE_2}
+                                </a>
+                            </Button>
+                            <Button asChild variant="outline">
+                                <a href={`mailto:${COMPANY_EMAIL}`}>
+                                    <Mail /> Email: {COMPANY_EMAIL}
+                                </a>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            </section>
 
             {/* Map Section */}
             <section className="mt-20">
