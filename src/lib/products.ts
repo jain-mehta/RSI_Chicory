@@ -36,8 +36,8 @@ export const products: Product[] = [
       shelfLife: "6 months when stored properly",
     },
     packaging: "Packed in breathable PP bags, typically 35kg.",
-    moq: "1 Metric Ton",
-    price: "₹15,000 / Metric Ton",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Hand Cut Chicory Roots",
@@ -54,8 +54,8 @@ export const products: Product[] = [
       shelfLife: "12 months",
     },
     packaging: "35kg PP bags or as per customer requirement.",
-    moq: "1 Metric Ton",
-    price: "₹20,000 / Metric Ton",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Roasted Chicory Cubes (NRC)",
@@ -72,8 +72,8 @@ export const products: Product[] = [
       shelfLife: "24 months",
     },
     packaging: "Lined PP bags to preserve freshness, 35kg standard.",
-    moq: "500 kg",
-    price: "From ₹70 / kg",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Roasted Chicory Cubes (DRC)",
@@ -90,8 +90,8 @@ export const products: Product[] = [
       shelfLife: "24 months",
     },
     packaging: "Lined PP bags to preserve freshness, 35kg standard.",
-    moq: "500 kg",
-    price: "From ₹75 / kg",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Dried Chicory Cubes",
@@ -108,8 +108,8 @@ export const products: Product[] = [
       shelfLife: "18 months",
     },
     packaging: "Standard 35kg PP bags.",
-    moq: "1 Metric Ton",
-    price: "₹25,000 / Metric Ton",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Liquid Chicory Extract",
@@ -126,8 +126,8 @@ export const products: Product[] = [
       shelfLife: "12 months",
     },
     packaging: "Food-grade HDPE carboys (35kg) or drums (285kg).",
-    moq: "100 kg",
-    price: "₹120 / kg",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Roasted Chicory Granules",
@@ -144,8 +144,8 @@ export const products: Product[] = [
       shelfLife: "24 months",
     },
     packaging: "25kg multi-wall paper bags with inner liner.",
-    moq: "250 kg",
-    price: "₹85 / kg",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
   {
     name: "Roasted Chicory Powder",
@@ -162,8 +162,8 @@ export const products: Product[] = [
       shelfLife: "18 months",
     },
     packaging: "25kg multi-wall paper bags.",
-    moq: "250 kg",
-    price: "₹80 / kg",
+    moq: "20 Ton",
+    price: "Contact us for custom pricing",
   },
 ];
 

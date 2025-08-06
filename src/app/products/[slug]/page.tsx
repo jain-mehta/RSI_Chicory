@@ -71,7 +71,7 @@ export default function ProductDetailPage({ params }: Props) {
                     <TableRow><TableCell className="font-semibold">Form</TableCell><TableCell>{product.specs.form}</TableCell></TableRow>
                     <TableRow><TableCell className="font-semibold">Shelf Life</TableCell><TableCell>{product.specs.shelfLife}</TableCell></TableRow>
                     <TableRow><TableCell className="font-semibold">Packaging</TableCell><TableCell>{product.packaging}</TableCell></TableRow>
-                    <TableRow><TableCell className="font-semibold">Price</TableCell><TableCell className="font-bold text-primary">{product.price}</TableCell></TableRow>
+                    <TableRow><TableCell className="font-semibold">Price</TableCell><TableCell>{product.price}</TableCell></TableRow>
                     <TableRow><TableCell className="font-semibold">MOQ</TableCell><TableCell className="font-bold">{product.moq}</TableCell></TableRow>
                   </TableBody>
                 </Table>
