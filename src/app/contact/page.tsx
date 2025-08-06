@@ -37,7 +37,7 @@ const ContactPage = () => {
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
                 {/* Contact Information */}
                 <div className="flex flex-col justify-center">
-                    <h2 className="font-headline text-3xl font-extrabold border-b pb-2 mb-4">Contact Information</h2>
+                    <h2 className="font-headline text-3xl font-extrabold border-b-2 pb-2 mb-4">Contact Information</h2>
                     <p className="text-lg text-muted-foreground">
                         Reach out to our dedicated sales team for B2B inquiries, bulk pricing, or sample requests. We are available during standard business hours (IST).
                     </p>
