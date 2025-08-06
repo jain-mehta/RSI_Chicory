@@ -2,7 +2,7 @@
 import { ContactForm } from '@/components/shared/contact-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE_1, COMPANY_PHONE_2 } from '@/lib/constants';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, LineChart, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 };
 
 const ContactPage = () => {
+    const services = [
+        "Bulk Supply & Wholesale",
+        "Custom Processing",
+        "Export Documentation",
+        "Quality Certification",
+        "Logistics Support"
+    ];
 
   return (
     <div>
@@ -21,8 +28,8 @@ const ContactPage = () => {
             src="https://images.unsplash.com/photo-1577563908411-5ab7ced106c8?q=80&w=1920"
             alt="Customer service representative"
             data-ai-hint="contact center"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             />
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
@@ -35,37 +42,58 @@ const ContactPage = () => {
 
         <div className="container mx-auto px-4 py-12 md:py-20">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-                {/* Contact Information */}
-                <div className="flex flex-col justify-center">
-                    <h2 className="font-headline text-3xl font-extrabold border-b-2 pb-2 mb-4">Contact Information</h2>
-                    <p className="text-lg text-muted-foreground">
-                        Reach out to our dedicated sales team for B2B inquiries, bulk pricing, or sample requests. We are available during standard business hours (IST).
-                    </p>
-                    <div className="mt-8 space-y-6">
-                        <a href={`mailto:${COMPANY_EMAIL}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
-                            <Mail className="h-8 w-8 text-primary" />
-                            <div>
-                                <p className="font-semibold">Email</p>
-                                <p className="text-lg">{COMPANY_EMAIL}</p>
+                {/* Contact Information & Services */}
+                <div className="flex flex-col gap-12">
+                    <div>
+                        <h2 className="font-headline text-3xl font-extrabold border-b-2 pb-2 mb-4">Contact Information</h2>
+                        <p className="text-lg text-muted-foreground">
+                            Reach out to our dedicated sales team for B2B inquiries, bulk pricing, or sample requests. We are available during standard business hours (IST).
+                        </p>
+                        <div className="mt-8 space-y-6">
+                            <a href={`mailto:${COMPANY_EMAIL}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
+                                <Mail className="h-8 w-8 text-primary" />
+                                <div>
+                                    <p className="font-semibold">Email</p>
+                                    <p className="text-lg">{COMPANY_EMAIL}</p>
+                                </div>
+                            </a>
+                            <div className="flex items-start gap-4">
+                                <Phone className="mt-1 h-8 w-8 shrink-0 text-primary" />
+                                <div>
+                                    <p className="font-semibold">Phone</p>
+                                    <a href={`tel:${COMPANY_PHONE_1}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_1}</a>
+                                    <br />
+                                    <a href={`tel:${COMPANY_PHONE_2}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_2}</a>
+                                </div>
                             </div>
-                        </a>
-                        <div className="flex items-start gap-4">
-                            <Phone className="mt-1 h-8 w-8 shrink-0 text-primary" />
-                            <div>
-                                <p className="font-semibold">Phone</p>
-                                <a href={`tel:${COMPANY_PHONE_1}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_1}</a>
-                                <br />
-                                <a href={`tel:${COMPANY_PHONE_2}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_2}</a>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-4">
-                            <MapPin className="mt-1 h-8 w-8 shrink-0 text-primary" />
-                            <div>
-                                <p className="font-semibold">Our Office</p>
-                                <p className="text-lg text-muted-foreground">{COMPANY_ADDRESS}</p>
+                            <div className="flex items-start gap-4">
+                                <MapPin className="mt-1 h-8 w-8 shrink-0 text-primary" />
+                                <div>
+                                    <p className="font-semibold">Our Office</p>
+                                    <p className="text-lg text-muted-foreground">{COMPANY_ADDRESS}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <LineChart className="h-6 w-6" />
+                                Our Services
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <ul className="space-y-3">
+                                {services.map(service => (
+                                    <li key={service} className="flex items-center gap-3">
+                                        <CheckCircle className="h-5 w-5 text-primary" />
+                                        <span className="text-muted-foreground">{service}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </CardContent>
+                    </Card>
                 </div>
 
                 {/* Contact Form */}
