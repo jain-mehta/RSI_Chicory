@@ -1,4 +1,3 @@
-
 // This component provides a reusable contact form for B2B inquiries.
 // It uses react-hook-form for state management and zod for validation.
 
@@ -36,12 +35,14 @@ import { Check, ChevronsUpDown } from 'lucide-react';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { ScrollArea } from '../ui/scroll-area';
 
 const formSchema = z.object({
   firstName: z.string().min(1, { message: 'First name is required.' }),
   lastName: z.string().min(1, { message: 'Last name is required.' }),
   company: z.string().min(2, { message: 'Company name is required.' }),
   companyAddress: z.string().min(5, { message: 'Company address is required.' }),
+  country: z.string().min(1, { message: 'Country is required.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   countryCode: z.string().optional(),
   phone: z.string().optional(),
@@ -74,6 +75,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
       lastName: '',
       company: '',
       companyAddress: '',
+      country: '',
       email: '',
       countryCode: 'IN:+91',
       phone: '',
@@ -153,11 +155,38 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                 <FormItem>
                 <FormLabelWithAsterisk>Company Address</FormLabelWithAsterisk>
                 <FormControl>
-                    <Input placeholder="123 Business Rd, Suite 100, City, Country" {...field} />
+                    <Input placeholder="123 Business Rd, Suite 100, City" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
             )}
+        />
+
+        <FormField
+          control={form.control}
+          name="country"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabelWithAsterisk>Country</FormLabelWithAsterisk>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a country" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <ScrollArea className="h-72">
+                    {COUNTRIES.map((country) => (
+                      <SelectItem key={country.code} value={country.name}>
+                        {country.name}
+                      </SelectItem>
+                    ))}
+                  </ScrollArea>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
         />
         
         <FormField
@@ -175,7 +204,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
             />
 
         <div>
-            <FormLabel>Phone Number (Optional)</FormLabel>
+            <FormLabel>Phone Number</FormLabel>
             <div className="mt-2 flex gap-2">
                 <FormField
                 control={form.control}
@@ -189,14 +218,16 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        {COUNTRIES.map((country) => (
-                            <SelectItem key={`${country.code}:${country.dialCode}`} value={`${country.code}:${country.dialCode}`}>
-                            <div className="flex items-center gap-2">
-                                <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
-                                <span>{country.dialCode}</span>
-                            </div>
-                            </SelectItem>
-                        ))}
+                          <ScrollArea className='h-72'>
+                            {COUNTRIES.map((country) => (
+                                <SelectItem key={`${country.code}:${country.dialCode}`} value={`${country.code}:${country.dialCode}`}>
+                                <div className="flex items-center gap-2">
+                                    <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
+                                    <span>{country.dialCode}</span>
+                                </div>
+                                </SelectItem>
+                            ))}
+                          </ScrollArea>
                         </SelectContent>
                     </Select>
                     </FormItem>
