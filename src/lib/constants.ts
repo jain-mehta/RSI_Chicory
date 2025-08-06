@@ -1,5 +1,6 @@
 
 // This file contains constants used throughout the application.
+import { products } from './products';
 
 // Company Information
 export const COMPANY_NAME = "RS Impex";
@@ -29,12 +30,11 @@ export const SOCIAL_LINKS = {
 };
 
 // Footer Links
-export const FOOTER_LINKS_PRODUCTS = () => [
-    { href: "/products/roasted-chicory-cubes", label: "Roasted Chicory Cubes" },
-    { href: "/products/dried-chicory-cubes", label: "Dried Chicory Cubes" },
-    { href: "/products/liquid-chicory-extract", label: "Liquid Chicory Extract" },
-    { href: "/products/roasted-chicory-powder", label: "Roasted Chicory Powder" },
-];
+export const FOOTER_LINKS_PRODUCTS = () => products.map(product => ({
+    href: `/products/${product.slug}`,
+    label: product.name,
+}));
+
 
 export const FOOTER_LINKS_COMPANY = () => [
     { href: "/about", label: "About Us" },
