@@ -68,7 +68,7 @@ export default function Home() {
           <div className="text-center">
             <h2 className="mb-4 font-headline text-3xl font-bold">Our Products</h2>
             <p className="mx-auto mb-12 max-w-3xl text-muted-foreground">
-              We offer a comprehensive range of chicory products to meet the diverse needs of coffee processors, ingredient traders, and food manufacturers worldwide.
+              We offer a comprehensive range of chicory products to meet the diverse needs of coffee processors, ingredient traders, food, and medicine manufacturers worldwide.
             </p>
           </div>
           <div className="space-y-16">
