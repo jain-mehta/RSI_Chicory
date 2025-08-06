@@ -45,7 +45,7 @@ const formSchema = z.object({
   country: z.string().min(1, { message: 'Country is required.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
   countryCode: z.string().optional(),
-  phone: z.string().optional(),
+  phone: z.string().min(1, 'Phone number is required.'),
   productInterest: z.array(z.string()).min(1, { message: 'Please select at least one product.' }),
   expectedQuantity: z.string().min(1, { message: 'Expected quantity is required.' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }).max(500),
@@ -207,7 +207,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                 />
 
             <div>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabelWithAsterisk>Phone Number</FormLabelWithAsterisk>
                 <div className="mt-2 flex gap-2">
                     <FormField
                     control={form.control}
@@ -217,7 +217,12 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                             <SelectTrigger>
-                                <SelectValue placeholder="Code" />
+                                <SelectValue asChild>
+                                    <div className="flex items-center gap-2">
+                                        <ReactCountryFlag countryCode={field.value?.split(':')[0] || 'IN'} svg style={{ width: '1.5em', height: '1.5em' }}/>
+                                        <span>{field.value?.split(':')[1] || '+91'}</span>
+                                    </div>
+                                </SelectValue>
                             </SelectTrigger>
                             </FormControl>
                             <SelectContent>
