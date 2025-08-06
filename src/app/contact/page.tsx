@@ -1,7 +1,7 @@
 
 import { ContactForm } from '@/components/shared/contact-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE } from '@/lib/constants';
+import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE_1, COMPANY_PHONE_2 } from '@/lib/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -49,13 +49,15 @@ const ContactPage = () => {
                                 <p className="text-lg">{COMPANY_EMAIL}</p>
                             </div>
                         </a>
-                        <a href={`tel:${COMPANY_PHONE}`} className="flex items-center gap-4 text-muted-foreground transition-colors hover:text-primary">
-                            <Phone className="h-8 w-8 text-primary" />
+                        <div className="flex items-start gap-4">
+                            <Phone className="mt-1 h-8 w-8 shrink-0 text-primary" />
                             <div>
                                 <p className="font-semibold">Phone</p>
-                                <p className="text-lg">{COMPANY_PHONE}</p>
+                                <a href={`tel:${COMPANY_PHONE_1}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_1}</a>
+                                <br />
+                                <a href={`tel:${COMPANY_PHONE_2}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_2}</a>
                             </div>
-                        </a>
+                        </div>
                         <div className="flex items-start gap-4">
                             <MapPin className="mt-1 h-8 w-8 shrink-0 text-primary" />
                             <div>

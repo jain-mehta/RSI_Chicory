@@ -9,7 +9,8 @@ import {
   FOOTER_LINKS_COMPANY,
   COMPANY_ADDRESS,
   COMPANY_EMAIL,
-  COMPANY_PHONE,
+  COMPANY_PHONE_1,
+  COMPANY_PHONE_2,
   COMPANY_NAME
 } from '@/lib/constants';
 import { Separator } from '../ui/separator';
@@ -48,9 +49,13 @@ const Footer = () => {
                     <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                     <span>{COMPANY_ADDRESS}</span>
                 </div>
-                 <div className='flex items-center gap-2'>
-                    <Phone className="h-4 w-4 shrink-0" />
-                    <a href={`tel:${COMPANY_PHONE}`} className="hover:underline">{COMPANY_PHONE}</a>
+                 <div className='flex items-start gap-2'>
+                    <Phone className="h-4 w-4 shrink-0 mt-0.5" />
+                    <div>
+                      <a href={`tel:${COMPANY_PHONE_1}`} className="hover:underline">{COMPANY_PHONE_1}</a>
+                      <br />
+                      <a href={`tel:${COMPANY_PHONE_2}`} className="hover:underline">{COMPANY_PHONE_2}</a>
+                    </div>
                 </div>
                  <div className='flex items-center gap-2'>
                     <Mail className="h-4 w-4 shrink-0" />
@@ -112,4 +117,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
