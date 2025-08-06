@@ -121,7 +121,7 @@ const AboutPage = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="bg-secondary py-12 md:py-20">
+      <section className="bg-background py-12 md:py-20">
         <div className="container mx-auto px-4">
             <div className="text-center">
                 <h2 className="font-headline text-3xl font-bold">Our Certifications</h2>
@@ -129,9 +129,9 @@ const AboutPage = () => {
                     Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
                 </p>
                 <div className="mt-8 flex justify-center gap-4 md:gap-8">
-                    <Badge variant="outline" className="h-auto border-2 border-muted-foreground/50 bg-transparent px-4 py-2 text-lg text-muted-foreground md:px-6 md:py-3 md:text-xl">FSSAI</Badge>
-                    <Badge variant="outline" className="h-auto border-2 border-muted-foreground/50 bg-transparent px-4 py-2 text-lg text-muted-foreground md:px-6 md:py-3 md:text-xl">APEDA</Badge>
-                    <Badge variant="outline" className="h-auto border-2 border-muted-foreground/50 bg-transparent px-4 py-2 text-lg text-muted-foreground md:px-6 md:py-3 md:text-xl">IEC</Badge>
+                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">FSSAI</Badge>
+                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">APEDA</Badge>
+                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">IEC</Badge>
                 </div>
             </div>
         </div>
