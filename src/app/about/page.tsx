@@ -129,9 +129,9 @@ const AboutPage = () => {
                     Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
                 </p>
                 <div className="mt-8 flex justify-center gap-4 md:gap-8">
-                    <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">FSSAI</Badge>
-                    <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">APEDA</Badge>
-                    <Badge className="h-auto px-4 py-2 text-lg md:px-6 md:py-3 md:text-xl">IEC</Badge>
+                    <Badge variant="outline" className="h-auto border-2 border-muted-foreground/50 bg-transparent px-4 py-2 text-lg text-muted-foreground md:px-6 md:py-3 md:text-xl">FSSAI</Badge>
+                    <Badge variant="outline" className="h-auto border-2 border-muted-foreground/50 bg-transparent px-4 py-2 text-lg text-muted-foreground md:px-6 md:py-3 md:text-xl">APEDA</Badge>
+                    <Badge variant="outline" className="h-auto border-2 border-muted-foreground/50 bg-transparent px-4 py-2 text-lg text-muted-foreground md:px-6 md:py-3 md:text-xl">IEC</Badge>
                 </div>
             </div>
         </div>
