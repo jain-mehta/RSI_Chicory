@@ -148,47 +148,49 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
             )}
           />
         
-        <FormField
-            control={form.control}
-            name="companyAddress"
-            render={({ field }) => (
-                <FormItem>
-                <FormLabelWithAsterisk>Company Address</FormLabelWithAsterisk>
-                <FormControl>
-                    <Input placeholder="123 Business Rd, Suite 100, City" {...field} />
-                </FormControl>
-                <FormMessage />
-                </FormItem>
-            )}
-        />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <FormField
+                control={form.control}
+                name="companyAddress"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabelWithAsterisk>Company Address</FormLabelWithAsterisk>
+                    <FormControl>
+                        <Input placeholder="123 Business Rd, Suite 100, City" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+            />
 
-        <FormField
-          control={form.control}
-          name="country"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabelWithAsterisk>Country</FormLabelWithAsterisk>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a country" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <ScrollArea className="h-72">
-                    {COUNTRIES.map((country) => (
-                      <SelectItem key={country.code} value={country.name}>
-                        {country.name}
-                      </SelectItem>
-                    ))}
-                  </ScrollArea>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
+            <FormField
+              control={form.control}
+              name="country"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabelWithAsterisk>Country</FormLabelWithAsterisk>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a country" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <ScrollArea className="h-72">
+                        {COUNTRIES.map((country) => (
+                          <SelectItem key={country.code} value={country.name}>
+                            {country.name}
+                          </SelectItem>
+                        ))}
+                      </ScrollArea>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+        </div>
+
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <FormField
                 control={form.control}
