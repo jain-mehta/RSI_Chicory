@@ -8,10 +8,10 @@ import Link from 'next/link';
 
 export default function Home() {
   const featuredProductSlugs = [
-    'roasted-chicory-cubes',
+    'roasted-chicory-cubes-drc',
     'raw-chicory-roots',
     'liquid-chicory-extract',
-    'roasted-chicory-granules',
+    'roasted-chicory-cubes-nrc',
   ];
 
   const featuredProducts = featuredProductSlugs
@@ -34,19 +34,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl">
-            <span style={{color: '#00008B'}}>RS</span><span style={{color: '#B81C22'}}>I</span> Chicory<sup style={{
+            <span style={{color: '#00008B'}}>RS</span><span style={{color: '#B81C22'}}>I</span> Chicor<sup style={{
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '1.5em',
-              height: '1.5em',
+              width: '1em',
+              height: '1em',
               borderRadius: '50%',
               border: '2px solid white',
-              fontSize: '0.3em',
+              fontSize: '0.4em',
               marginLeft: '0.2em',
               fontWeight: 'normal',
               verticalAlign: 'super',
-            }}>TM</sup>: Your Trusted B2B Partner
+            }}>TM</sup>y: Your Trusted B2B Partner
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
             Premium Chicory Products Sourced Directly From Indian Farms. Built for Global Scale.
