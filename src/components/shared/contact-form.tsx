@@ -21,11 +21,22 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { COUNTRIES } from '@/lib/country-codes';
+import ReactCountryFlag from 'react-country-flag';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   company: z.string().min(2, { message: 'Company name is required.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
+  countryCode: z.string().optional(),
   phone: z.string().optional(),
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }).max(500),
 });
@@ -45,6 +56,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
       name: '',
       company: '',
       email: '',
+      countryCode: '+91',
       phone: '',
       message: defaultMessage || '',
     },
@@ -54,7 +66,8 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
     setIsSubmitting(true);
     // In a real application, you would send this data to a server endpoint.
     // We'll simulate an API call here.
-    console.log({ ...values, sourcePage });
+    const fullPhoneNumber = values.phone ? `${values.countryCode} ${values.phone}` : '';
+    console.log({ ...values, phone: fullPhoneNumber, sourcePage });
     
     await new Promise(resolve => setTimeout(resolve, 1500));
     
@@ -111,15 +124,42 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
               </FormItem>
             )}
           />
-          <FormField
+           <FormField
             control={form.control}
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number (Optional)</FormLabel>
-                <FormControl>
-                  <Input placeholder="+1-555-123-4567" {...field} />
-                </FormControl>
+                 <FormLabel>Phone Number (Optional)</FormLabel>
+                <div className="flex gap-2">
+                   <FormField
+                    control={form.control}
+                    name="countryCode"
+                    render={({ field: countryCodeField }) => (
+                      <FormItem className="w-28">
+                         <Select onValueChange={countryCodeField.onChange} defaultValue={countryCodeField.value}>
+                            <FormControl>
+                                <SelectTrigger>
+                                <SelectValue placeholder="Code" />
+                                </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                                {COUNTRIES.map((country) => (
+                                <SelectItem key={country.code} value={country.dialCode}>
+                                    <div className="flex items-center gap-2">
+                                    <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }}/>
+                                    <span>{country.dialCode}</span>
+                                    </div>
+                                </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                      </FormItem>
+                    )}
+                  />
+                  <FormControl>
+                    <Input placeholder="555-123-4567" {...field} />
+                  </FormControl>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
