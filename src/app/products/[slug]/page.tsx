@@ -53,23 +53,7 @@ export default function ProductDetailPage({ params }: Props) {
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
         
-        {/* Left Column - Product Image */}
-        <div className="lg:col-span-2">
-          <div className="sticky top-24">
-            <Card className="overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  data-ai-hint={product.aiHint}
-                  width={600}
-                  height={600}
-                  className="w-full object-cover aspect-square"
-                />
-            </Card>
-          </div>
-        </div>
-
-        {/* Right Column - Product Details */}
+        {/* Left Column - Product Details */}
         <div className="lg:col-span-3">
           <div className="space-y-8">
             <div>
@@ -132,6 +116,22 @@ export default function ProductDetailPage({ params }: Props) {
                   defaultMessage={`I am interested in ${product.name}. Please provide a quote for an estimated quantity of...`}
                 />
               </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Right Column - Product Image */}
+        <div className="lg:col-span-2">
+          <div className="sticky top-24">
+            <Card className="overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  data-ai-hint={product.aiHint}
+                  width={600}
+                  height={600}
+                  className="w-full object-cover aspect-square"
+                />
             </Card>
           </div>
         </div>
