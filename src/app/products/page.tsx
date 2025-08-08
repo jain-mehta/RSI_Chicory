@@ -1,13 +1,15 @@
 
-
-'use client';
-
 import { ProductCard } from '@/components/product-card';
 import { products, Product } from '@/lib/products';
-import { useState } from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Products | RSI Chicory',
+  description: 'Explore our complete portfolio of high-quality chicory products, including roasted cubes, granules, liquid extract, and hand-cut roots for the B2B food and beverage industry.',
+};
 
 export default function ProductsPage() {
-    const [allProducts] = useState<Product[]>(products);
+    const allProducts: Product[] = products;
 
     return (
         <div className="bg-background">
