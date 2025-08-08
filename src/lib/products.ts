@@ -29,7 +29,7 @@ export const products: Product[] = [
     description: "Produced via contract farming with French-origin chicory seeds; farmer hand-cut and sun-dried; batch-tested and fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
     processing: "On receipt at our Etah facility, roots are cleaned, graded, and hygienically packed.",
-    applications: ["Roasting and extraction base", "milling to powder", "herbal infusions", "ingredient processing"],
+    applications: ["Roasting and extraction base", "Milling to powder", "Herbal infusions", "Ingredient processing"],
     specs: {
       color: "Beige to light brown",
       form: "Hand-cut pieces",
@@ -88,7 +88,7 @@ export const products: Product[] = [
     slug: "dried-chicory-cubes",
     image: "https://images.unsplash.com/photo-1525203139896-77880291bb6f?q=80&w=600",
     aiHint: "dried herbs",
-    description: "Produced from French-origin chicory via contract farming, these cubes are batch-tested and fully traceable. Ready for export, they are an ideal raw material for coffee and food ingredient partners.",
+    description: "Produced from French-origin chicory via contract farming, these cubes are batch-tested and fully traceable. Washed, diced, sun-dried for 48–72 hours, then graded and hygienically packed at our Etah facility. Ready for export, they are an ideal raw material for coffee and food ingredient partners.",
     origin: "India",
     processing: "Washed, diced, sun-dried for 48–72 hours, then graded and hygienically packed at our Etah facility.",
     applications: ["Roasting and extraction base", "Instant coffee manufacturing", "Prebiotic/inulin blends", "Herbal beverage formulations"],
@@ -106,7 +106,7 @@ export const products: Product[] = [
     slug: "liquid-chicory-extract",
     image: "https://images.unsplash.com/photo-1600727036683-e006e534444b?q=80&w=600",
     aiHint: "dark syrup",
-    description: "A concentrated liquid extract made from roasted chicory, ideal for seamless integration into liquid-based food and beverage production lines. Ready for export — partners invited in coffee and food ingredients.",
+    description: "A concentrated liquid extract made from roasted chicory, ideal for seamless integration into liquid-based food and beverage production lines. Prepared from roasted chicory cubes via hot-water extraction, filtered and concentrated in falling-film evaporators; packed hot in food-grade HDPE drums to preserve quality. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
     processing: "Prepared from roasted chicory cubes via hot-water extraction, filtered and concentrated in falling-film evaporators; packed hot in food-grade HDPE drums to preserve quality.",
     applications: [
