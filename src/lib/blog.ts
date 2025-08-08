@@ -10,6 +10,7 @@ export type BlogPost = {
   image: string;
   aiHint: string;
   content: string; // Adding a longer content field
+  faq?: { question: string; answer: string }[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -104,28 +105,24 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Risk management:</strong> Include acrylamide mitigation controls and COAs for each lot in line with internal standards for roasted ingredients.</li>
       </ul>
       <p class="mt-4">This approach secures the cup and crema performance promised in development through commercial runs.</p>
-
-      <h3 class="mt-8 font-headline text-2xl font-bold">Frequently Asked Technical Questions</h3>
-       <ul class="list-disc pl-6 space-y-2 mt-4">
-        <li><strong>Does chicory directly create crema?</strong> Not directly like coffee oils/proteins, but its melanoidins and high-MW fractions can enhance the bulk phase to support foam retention when brewing variables are optimized.</li>
-        <li><strong>Which roast degree is best for crema?</strong> There is no single “best”; blends benefit when roast targets are chosen to balance caramel sweetness and roasty depth, then brewed with basket/dose parameters tuned for crema stability.</li>
-        <li><strong>Will chicory make my blend taste “too chicory-like”?</strong> Control by specifying roast color and sensory cutoffs for rotundone-driven notes, and balance with coffee origins/roasts to keep the chicory signature supportive rather than dominant.</li>
-      </ul>
-
-      <h3 class="mt-8 font-headline text-2xl font-bold">Implementation Checklist for Industrial Buyers</h3>
-      <ul class="list-disc pl-6 space-y-2 mt-4">
-        <li>Define application-specific roast color windows for chicory (espresso, filter, soluble, RTD).</li>
-        <li>Lock moisture/aw specs and particle size distributions aligned to extraction systems.</li>
-        <li>Incorporate sensory anchors tied to defined odorants for release criteria and shelf checks.</li>
-        <li>Standardize espresso test rigs (basket size/dose/ratio) for crema benchmarking.</li>
-        <li>Document acrylamide control strategy and storage aging indicators in QA plans.</li>
-      </ul>
-      <p class="mt-4">When embedded into supplier agreements and plant SOPs, these steps translate chicory’s intrinsic chemistry into reliable crema and cup outcomes at scale.</p>
-      `
+      `,
+      faq: [
+          {
+              question: "Does chicory directly create crema?",
+              answer: "Not directly like coffee oils/proteins, but its melanoidins and high-MW fractions can enhance the bulk phase to support foam retention when brewing variables are optimized."
+          },
+          {
+              question: "Which roast degree is best for crema?",
+              answer: "There is no single “best”; blends benefit when roast targets are chosen to balance caramel sweetness and roasty depth, then brewed with basket/dose parameters tuned for crema stability."
+          },
+          {
+              question: "Will chicory make my blend taste “too chicory-like”?",
+              answer: "Control by specifying roast color and sensory cutoffs for rotundone-driven notes, and balance with coffee origins/roasts to keep the chicory signature supportive rather than dominant."
+          }
+      ]
   },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
     return blogPosts.find((p) => p.slug === slug);
 };
-

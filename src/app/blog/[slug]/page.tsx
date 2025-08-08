@@ -5,6 +5,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { Calendar, Tag } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 type Props = {
   params: { slug: string };
@@ -70,6 +71,23 @@ export default function BlogPostPage({ params }: Props) {
             {/* Post Content */}
             <p className="lead text-xl text-muted-foreground">{post.description}</p>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
+
+            {/* FAQ Section */}
+            {post.faq && post.faq.length > 0 && (
+                <div className="mt-12 not-prose">
+                    <h3 className="font-headline text-2xl font-bold mb-4">Frequently Asked Technical Questions</h3>
+                    <Accordion type="single" collapsible className="w-full">
+                        {post.faq.map((item, index) => (
+                            <AccordionItem key={index} value={`item-${index}`}>
+                                <AccordionTrigger>{item.question}</AccordionTrigger>
+                                <AccordionContent>
+                                    <p className="text-muted-foreground">{item.answer}</p>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            )}
 
         </article>
     </div>
