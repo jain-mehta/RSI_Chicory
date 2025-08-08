@@ -26,17 +26,22 @@ export const products: Product[] = [
     slug: "hand-cut-chicory-roots",
     image: "https://images.unsplash.com/photo-1606856843374-4dd99b3fa24a?q=80&w=600",
     aiHint: "chopped vegetables",
-    description: "Carefully selected and hand-cut chicory roots, ensuring uniform size for consistent drying and roasting. Ideal for artisanal and specialized applications requiring precise control over the production process.",
+    description: "Carefully selected and hand-cut chicory roots, ensuring uniform size for consistent drying and roasting. Produced via contract farming with French-origin chicory seeds, our supply chain is batch-tested and fully traceable. This product is ready for export, and we are seeking distributors, importers, and partners in the global coffee and food ingredient sectors.",
     origin: "India",
-    processing: "Raw roots are sorted and cut by hand to specific dimensions, followed by a preliminary sun-drying process to reduce moisture.",
-    applications: ["Premium coffee blends", "Specialty food ingredients"],
+    processing: "Raw roots are sorted and cut by hand to specific dimensions. Hand-cut and sun-dried at farm level, then cleaned and packed at our Etah facility following hygienic protocols.",
+    applications: [
+      "Premium coffee blends",
+      "Functional food/ingredient processing (e.g., inulin extraction)",
+      "Herbal infusions",
+      "Artisanal beverage manufacture"
+    ],
     specs: {
       color: "Beige to light brown",
       form: "Hand-cut pieces",
       shelfLife: "12 months",
     },
-    packaging: "35kg PP bags or as per customer requirement.",
-    moq: "20 Ton",
+    packaging: "Standard: 35kg PP bags. Bulk and custom packaging available on request to meet customer requirements.",
+    moq: "20 tons (negotiable for larger contracts)",
     price: "Contact us for custom pricing",
   },
   {

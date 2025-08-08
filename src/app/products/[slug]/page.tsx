@@ -75,6 +75,9 @@ export default function ProductDetailPage({ params }: Props) {
                     <TableRow><TableCell className="font-semibold">MOQ</TableCell><TableCell className="font-bold">{product.moq}</TableCell></TableRow>
                   </TableBody>
                 </Table>
+                 <Button asChild className="mt-6 w-full" size="lg">
+                    <Link href={`/contact?inquiry=bulk_quote_for_${product.slug}`}>Request Bulk Quote</Link>
+                </Button>
               </CardContent>
             </Card>
 
