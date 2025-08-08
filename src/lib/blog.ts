@@ -1,5 +1,3 @@
-
-
 // This file acts as a mock database for blog posts.
 
 export type BlogPost = {
@@ -124,7 +122,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'dried-chicory-cubes-vs-hand-cut-roots',
-    title: 'Dried Chicory Cubes vs. Hand-Cut Roots: The Right Input for Roasting and Extraction Lines',
+    title: 'Dried Chicory Cubes vs. Hand-Cut Roots: Choosing the Optimal Input for Roasting and Extraction Lines',
     description: 'Compare dried cubes and hand-cut chicory for industrial roasting and extraction. Learn impacts on yield, filtration, sensory, and cost—plus spec templates and trial protocols.',
     date: 'July 15, 2024',
     category: 'Process Engineering',
@@ -304,24 +302,166 @@ export const blogPosts: BlogPost[] = [
         </ul>
     `,
     faq: [
-      {
-        question: 'Excess fines causing filter blinding',
-        answer: 'Switch higher fraction to cubes; add pre-screening; reduce mechanical stress in conveying.',
-      },
-      {
-        question: 'Inconsistent roast color with hand-cut',
-        answer: 'Lower batch load, extend development, improve bed agitation, or tighten cut distribution.',
-      },
-      {
-        question: 'RTD sedimentation',
-        answer: 'Use cubes, implement two-stage filtration (depth + membrane), and optimize cold hold before fill.',
-      },
-      {
-        question: 'Thin mouthfeel at target brix',
-        answer: 'Increase hand-cut fraction modestly; adjust roast development to boost melanoidin formation.',
-      },
+      { question: 'Excess fines causing filter blinding', answer: 'Switch higher fraction to cubes; add pre-screening; reduce mechanical stress in conveying.' },
+      { question: 'Inconsistent roast color with hand-cut', answer: 'Lower batch load, extend development, improve bed agitation, or tighten cut distribution.' },
+      { question: 'RTD sedimentation', answer: 'Use cubes, implement two-stage filtration (depth + membrane), and optimize cold hold before fill.' },
+      { question: 'Thin mouthfeel at target brix', answer: 'Increase hand-cut fraction modestly; adjust roast development to boost melanoidin formation.' },
     ],
   },
+   {
+    slug: 'building-coffee-chicory-blends-for-diverse-taste-markets',
+    title: 'Building Coffee–Chicory Blends for Global Taste Markets: Roast Curves, Bitterness Control, and Cost Engineering',
+    description: 'Practical guide to design coffee–chicory blends for Southeast Asia, MENA, EU, and Americas with roast, bitterness, and cost controls.',
+    date: 'July 1, 2024',
+    category: 'Blending Strategy',
+    image: 'https://images.unsplash.com/photo-1511920183353-3c9c35b572e3?q=80&w=600',
+    aiHint: 'global map coffee',
+    content: `
+        <p>Industrial buyers and beverage developers use chicory to engineer coffee blends that deliver consistent flavor profiles across regions while keeping input costs predictable and margins healthy. The key is aligning roast curves and input formats (roasted chicory, cubes, hand-cut roots, liquid extract) with market-specific taste archetypes, bitterness targets, and extraction systems—all while controlling filtration, crema behavior, and shelf stability for soluble and RTD lines.</p>
+        <p>This guide provides a practical, plant-ready playbook to design blends for Southeast Asia, Middle East/North Africa, EU, and the Americas, with clear controls for roast development, bitterness management, and cost levers suitable for RSI Chicory’s industrial buyers.</p>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">What Chicory Adds to Coffee Blends</h3>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Sensory scaffolding:</strong> Roasted chicory contributes caramel/malty sweetness, roasty/nutty depth, and fuller mouthfeel via melanoidin-rich matrices—stabilizing cup profiles when coffee origins vary.</li>
+            <li><strong>Variability dampening:</strong> Chicory helps reduce batch-to-batch flavor drift from coffee harvest changes, enabling long-run consistency for industrial portfolios.</li>
+            <li><strong>Process synergy:</strong> Chicory’s roast chemistry parallels coffee’s Maillard reactions, making it compatible with espresso, soluble, premix, and RTD systems with the right grind/cut and filtration controls.</li>
+        </ul>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">Core Strategy: Roast Curves and Bitterness Control</h3>
+        <p><strong>Roast curve design:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Light–medium chicory roast:</strong> Emphasizes caramel sweetness and mild roast notes; ideal for smoother profiles, premix, and clarity-first RTD.</li>
+            <li><strong>Medium–dark chicory roast:</strong> Boosts roasty intensity and perceived strength; better for espresso-forward markets and blends needing bolder impact.</li>
+        </ul>
+        <p class="mt-4"><strong>Bitterness levers:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Adjust chicory roast degree rather than only increasing dose; medium roast often raises sweetness perception and rounds harshness.</li>
+            <li>Pair with coffee roast curves: Darker coffee roasts plus medium chicory often deliver body without excessive harshness; lighter coffee roasts pair with medium-dark chicory for perceived strength without sourness.</li>
+        </ul>
+        <p class="mt-4"><strong>Mouthfeel and crema:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Control grind/cut and fines for espresso and RTD; aim for melanoidin-driven body with manageable filtration loads.</li>
+        </ul>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">Market Archetypes and Formulation Targets</h3>
+        <p><strong>Southeast Asia (e.g., 3-in-1/2-in-1, vending, café blends):</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Profile:</strong> Sweet-leaning, rounded roast, strong body.</li>
+            <li><strong>Approach:</strong> Medium chicory roast; higher proportion of cubes for predictable extraction and lower fines; pair with medium-dark coffee.</li>
+            <li><strong>Notes:</strong> Keep filtration easy for premix and soluble; manage acrylamide targets through roast controls.</li>
+        </ul>
+        <p class="mt-4"><strong>Middle East/North Africa:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Profile:</strong> Bold roasty notes, assertive cup, good crema for espresso service.</li>
+            <li><strong>Approach:</strong> Medium-dark chicory roast; include hand-cut fraction for depth and body; tune espresso extraction and basket selection to stabilize crema.</li>
+            <li><strong>Notes:</strong> Watch fines; pre-screen hand-cut if clarity or filter loading becomes an issue.</li>
+        </ul>
+        <p class="mt-4"><strong>EU:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Profile:</strong> Balanced roast, clean finish, moderate bitterness, clarity in RTD/Cold Brew SKUs.</li>
+            <li><strong>Approach:</strong> Light–medium chicory roast; predominantly cubes; add small hand-cut fraction only if more body is needed; emphasize filtration stability for RTD.</li>
+        </ul>
+        <p class="mt-4"><strong>Americas:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Profile:</strong> Diverse—from lighter, clean specialty profiles to diner-style robust cups.</li>
+            <li><strong>Approach:</strong> For cleaner profiles, medium chicory with tight filtration and lower dose; for robust styles, medium-dark chicory with controlled fines and adjusted brew ratios.</li>
+        </ul>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">Input Selection by Process</h3>
+        <p><strong>Espresso/HoReCa:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Blend:</strong> 30–60% hand-cut plus 40–70% cubes in the chicory portion to balance body and fines.</li>
+            <li><strong>Controls:</strong> Standardize basket size and dose; evaluate crema height and drainage; ensure roast color windows are tight.</li>
+        </ul>
+        <p class="mt-4"><strong>Soluble/Instant:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Blend:</strong> 80–100% cubes for consistent brix, low filter load, and spray/freeze-dry compatibility.</li>
+            <li><strong>Controls:</strong> Track brix and color correlations; maintain low fines; monitor storage aging.</li>
+        </ul>
+        <p class="mt-4"><strong>Premix/Vending:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Blend:</strong> High cubes proportion for predictable extraction and low variability; medium chicory roast for sweetness.</li>
+        </ul>
+        <p class="mt-4"><strong>RTD/Concentrates:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li><strong>Blend:</strong> 90–100% cubes; if additional body needed, slight increase in roast development or small hand-cut fraction with upgraded filtration.</li>
+            <li><strong>Controls:</strong> Cold filtration, turbidity checks, and sediment control over 7–14 days.</li>
+        </ul>
+        <p class="mt-4"><strong>Liquid extract usage:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Best as a convenience lever for factories needing quick adjustments or where liquid dosing fits existing syrup lines.</li>
+            <li>Use when fast solubility and minimal solids handling is a priority; otherwise prefer solid inputs for broader roast control.</li>
+        </ul>
+        
+        <h3 class="mt-8 font-headline text-2xl font-bold">Practical Bitterness Management</h3>
+        <p><strong>If the cup is harsh/bitter:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Shift chicory from dark to medium roast; reduce fines; adjust brew ratio and lower extraction temperature where possible.</li>
+        </ul>
+        <p class="mt-4"><strong>If the cup is thin at target brix:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Increase hand-cut fraction or slightly extend chicory roast development to boost melanoidins.</li>
+        </ul>
+        <p class="mt-4"><strong>If sweetness feels low:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Nudge chicory roast toward medium; pair with slightly lighter coffee roast segment for balance.</li>
+        </ul>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">Cost Engineering Without Sensory Penalty</h3>
+        <p>Stabilize flavor first using chicory’s roast and input mix, then optimize dose:</p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Use spectro/Lab* to lock roast windows and minimize rework.</li>
+            <li>Favor cubes where filtration/throughput costs impact total landed cost.</li>
+            <li>Introduce hand-cut only where sensory lift justifies manageable fines and throughput adjustments.</li>
+        </ul>
+        <p class="mt-4"><strong>Procurement:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Secure contract volumes with consistent cut specs, moisture/aw limits, and post-roast color targets to reduce drift and avoid over-roasting compensation.</li>
+        </ul>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">QA/Specification Templates</h3>
+        <p><strong>Roasted chicory (solid inputs):</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Roast color window per SKU and market (espresso vs. soluble vs. RTD).</li>
+            <li>Moisture/aw tight bands to stabilize extraction and storage.</li>
+            <li>Cut/grind distribution aligned to process; max fines percentage defined.</li>
+            <li>Sensory anchors (caramel intensity, roasty depth, perceived sweetness) for lot release.</li>
+        </ul>
+        <p class="mt-4"><strong>Liquid chicory extract:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Brix range and viscosity; color spec; clarity/haze thresholds for RTD.</li>
+            <li>Micro and shelf-life targets appropriate to downstream line.</li>
+        </ul>
+
+        <h3 class="mt-8 font-headline text-2xl font-bold">Pilot-to-Plant Protocol</h3>
+        <p><strong>Bench mapping:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Build a sensory lexicon tied to caramel sweet notes and roasty depth; correlate to color metrics.</li>
+        </ul>
+        <p class="mt-4"><strong>Espresso foam tests:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Fix basket/dose; compare crema stability across chicory roast levels and input mixes.</li>
+        </ul>
+        <p class="mt-4"><strong>Filtration and stability:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>For RTD, run 14-day cold holds; measure turbidity, sediment, and flavor drift.</li>
+        </ul>
+        <p class="mt-4"><strong>Acceptance criteria:</strong></p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+            <li>Define pass/fail bands for color, brix, turbidity, crema behavior, and key sensory notes.</li>
+        </ul>
+        
+        <h3 class="mt-8 font-headline text-2xl font-bold">How RSI Chicory Supports Global Programs</h3>
+        <p>Contract-farming with on-farm dicing and 48-hour sun drying ensures uniform pre-roast moisture and density for predictable roasting.</p>
+        <p>Parallel production of cubes, hand-cut roots, roasted chicory (light/dark), liquid extract, and raw roots enables flexible trials.</p>
+        <p>Industrial roasting at Etah with application-specific curves and tight color controls supports global taste archetypes and large-scale consistency.</p>
+    `,
+    faq: [
+      { question: 'Excess sediment in RTD', answer: 'Increase cube proportion, add two-stage filtration, and reduce mechanical stress to limit fines.' },
+      { question: 'Inconsistent cups across markets', answer: 'Separate regional roast color windows and blend ratios; avoid one-size-fits-all.' },
+      { question: 'Over-reliance on dose for strength', answer: 'First adjust roast development and input mix; dose last to protect cost and stability.' },
+    ],
+  }
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
