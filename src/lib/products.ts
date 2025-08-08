@@ -26,7 +26,7 @@ export const products: Product[] = [
     slug: "hand-cut-chicory-roots",
     image: "https://images.unsplash.com/photo-1606856843374-4dd99b3fa24a?q=80&w=600",
     aiHint: "chopped vegetables",
-    description: "Produced via contract farming with French-origin seeds; farmer hand-cut and sun-dried; batch-tested and fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
+    description: "Produced via contract farming with French-origin chicory seeds; farmer hand-cut and sun-dried; batch-tested and fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
     processing: "On receipt at our Etah facility, roots are cleaned, graded, and hygienically packed.",
     applications: ["Roasting and extraction base", "milling to powder", "herbal infusions", "ingredient processing"],
@@ -36,7 +36,7 @@ export const products: Product[] = [
       shelfLife: "12 months when stored ≤25°C in a cool, dry place away from sunlight; keep bags sealed.",
     },
     packaging: "Standard: 35kg lined PP/HDPE bags with inner LDPE liner; custom/bulk packing available.",
-    moq: "20 tons (negotiable for larger contracts)",
+    moq: "20 tons (negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -62,7 +62,7 @@ export const products: Product[] = [
       shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
     packaging: "Standard: 35kg lined PP/HDPE bags with inner LDPE liner; custom/bulk packing available.",
-    moq: "20 tons (negotiable for long-term/bulk contracts)",
+    moq: "20 tons (negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -88,9 +88,9 @@ export const products: Product[] = [
     slug: "dried-chicory-cubes",
     image: "https://images.unsplash.com/photo-1525203139896-77880291bb6f?q=80&w=600",
     aiHint: "dried herbs",
-    description: "Sun-dried or machine-dried chicory cubes with low moisture, ready for roasting. Produced from French-origin chicory via contract farming; batch-tested and fully traceable. Ready for export — partners invited in coffee and food ingredients.",
+    description: "Produced from French-origin chicory via contract farming, these cubes are batch-tested and fully traceable. Ready for export, they are an ideal raw material for coffee and food ingredient partners.",
     origin: "India",
-    processing: "Washed, diced, sun-dried 48–72h, graded and hygienically packed at our Etah facility.",
+    processing: "Washed, diced, sun-dried for 48–72 hours, then graded and hygienically packed at our Etah facility.",
     applications: ["Roasting and extraction base", "Instant coffee manufacturing", "Prebiotic/inulin blends", "Herbal beverage formulations"],
     specs: {
       color: "Cream to light brown",
@@ -121,7 +121,7 @@ export const products: Product[] = [
       shelfLife: "12 months when stored ≤25°C in a cool, dry place away from sunlight; use clean, dry transfer lines.",
     },
     packaging: "35kg HDPE carboys or 285–300kg HDPE drums with inner liner; batch no., net wt., Brix, and month of packing printed; bulk tanker supply on request.",
-    moq: "20 Ton",
+    moq: "20 Ton (negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -139,7 +139,7 @@ export const products: Product[] = [
       shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
     packaging: "Standard: 25kg multi-wall paper bags with inner LDPE liner; optional 35kg PP/HDPE lined bags; custom/bulk packing available.",
-    moq: "20 Ton",
+    moq: "20 Ton (negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -157,7 +157,7 @@ export const products: Product[] = [
       shelfLife: "18 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
     packaging: "Standard: 25kg multi-wall paper bags with inner liner; optional 35–40kg PP/HDPE lined bags; custom/bulk packing available.",
-    moq: "20 Ton",
+    moq: "20 Ton (negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
 ];
