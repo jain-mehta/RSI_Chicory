@@ -17,7 +17,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "how-roasted-chicory-elevates-coffee-blends",
-    title: "How Roasted Chicory Elevates Coffee Blends: Roast Profiles, Crema Stability, Cup Consistency",
+    title: "How Roasted Chicory Elevates Coffee Blends: Roast Profiles, Crema Stability, and Cup Consistency",
     description: "Industrial guide to using roasted chicory for better crema, stable cup quality, and consistent flavor—covering roast profiles, melanoidins, aroma chemistry, and QA specs.",
     date: "July 26, 2024",
     category: "Technical Guide",
@@ -176,7 +176,7 @@ export const blogPosts: BlogPost[] = [
         <p><strong>Fines Load:</strong></p>
         <ul class="list-disc pl-6 space-y-2 mt-4">
             <li><strong>Cubes:</strong> Typically generate fewer fines during handling, improving filterability and reducing pressure spikes in plate-and-frame or cartridge systems.</li>
-            <li><strong>Hand-cut:</strong> Irregular edges can shed more fines, requiring pre-filtration or stepwise screens to maintain throughput and avoid haze in RTD systems.</li>
+            <li><strong>Hand-cut’s:</strong> irregular edges can shed more fines, requiring pre-filtration or stepwise screens to maintain throughput and avoid haze in RTD systems.</li>
         </ul>
         <p class="mt-4"><strong>Sedimentation Control:</strong></p>
         <ul class="list-disc pl-6 space-y-2 mt-4">
