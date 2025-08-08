@@ -1,4 +1,5 @@
 
+
 import { getBlogPostBySlug, blogPosts } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -38,6 +39,11 @@ export default function BlogPostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
+  
+  const faqTitle = post.slug === 'dried-chicory-cubes-vs-hand-cut-roots' 
+    ? "Common Pitfalls and Fixes"
+    : "Frequently Asked Technical Questions";
+
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12 md:py-20">
@@ -69,13 +75,12 @@ export default function BlogPostPage({ params }: Props) {
             </div>
             
             {/* Post Content */}
-            <p className="lead text-xl text-muted-foreground">{post.description}</p>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
             {/* FAQ Section */}
             {post.faq && post.faq.length > 0 && (
                 <div className="mt-12 not-prose">
-                    <h3 className="font-headline text-2xl font-bold mb-4">Frequently Asked Technical Questions</h3>
+                    <h3 className="font-headline text-2xl font-bold mb-4">{faqTitle}</h3>
                     <Accordion type="single" collapsible className="w-full">
                         {post.faq.map((item, index) => (
                             <AccordionItem key={index} value={`item-${index}`}>
