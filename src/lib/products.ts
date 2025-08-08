@@ -22,24 +22,6 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    name: "Raw Chicory Roots",
-    slug: "raw-chicory-roots",
-    image: "https://images.unsplash.com/photo-1598950433232-7236c5395103?q=80&w=600",
-    aiHint: "vegetable roots",
-    description: "High-quality raw chicory roots sourced directly from our network of contract farms. Cleaned and graded for further processing, providing a pure starting material for various chicory products.",
-    origin: "India, from select French seed lineage.",
-    processing: "Cultivated under contract farming agreements, harvested at peak maturity, and carefully cleaned and graded at our facility.",
-    applications: ["Base material for all chicory products", "Herbal infusions"],
-    specs: {
-      color: "Light brown / Beige",
-      form: "Whole roots",
-      shelfLife: "6 months when stored properly",
-    },
-    packaging: "Packed in breathable PP bags, typically 35kg.",
-    moq: "20 Ton",
-    price: "Contact us for custom pricing",
-  },
-  {
     name: "Hand Cut Chicory Roots",
     slug: "hand-cut-chicory-roots",
     image: "https://images.unsplash.com/photo-1606856843374-4dd99b3fa24a?q=80&w=600",
