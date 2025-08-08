@@ -27,7 +27,7 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/company/rsi-chicory",
   youtube: "https://www.youtube.com/@RSI_Chicory",
   instagram: "https://www.instagram.com/rsi_chicory/",
-  facebook: "https://facebook.com",
+  facebook: "https://www.facebook.com/people/RSI-Chicory/61579293806067/",
 };
 
 // Footer Links
