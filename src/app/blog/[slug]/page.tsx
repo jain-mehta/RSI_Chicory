@@ -69,7 +69,7 @@ export default function BlogPostPage({ params }: Props) {
             
             {/* Post Content */}
             <p className="lead text-xl text-muted-foreground">{post.description}</p>
-            <p>{post.content}</p>
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
         </article>
     </div>
