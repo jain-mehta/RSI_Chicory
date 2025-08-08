@@ -16,13 +16,13 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "how-roasted-chicory-elevates-coffee-blends",
-    title: "How Roasted Chicory Elevates Coffee Blends: Roast Profiles, Crema Stability, and Cup Consistency",
-    description: "Industrial guide to using roasted chicory for better crema, stable cup quality, and consistent flavor—covering roast profiles, melanoidins, aroma chemistry, and QA specs.",
-    date: "July 26, 2024",
-    category: "Technical Guide",
-    image: "https://images.unsplash.com/photo-1551030173-1744754c6a6a?q=80&w=600",
-    aiHint: "coffee beans roasting",
+    slug: 'how-roasted-chicory-elevates-coffee-blends',
+    title: 'How Roasted Chicory Elevates Coffee Blends: Roast Profiles, Crema Stability, and Cup Consistency',
+    description: 'Industrial guide to using roasted chicory for better crema, stable cup quality, and consistent flavor—covering roast profiles, melanoidins, aroma chemistry, and QA specs.',
+    date: 'July 26, 2024',
+    category: 'Technical Guide',
+    image: 'https://images.unsplash.com/photo-1551030173-1744754c6a6a?q=80&w=600',
+    aiHint: 'coffee beans roasting',
     content: `
       <p>Industrial beverage developers increasingly rely on roasted chicory to engineer coffee blends that deliver stable crema, consistent cup quality, and cost resilience without sacrificing sensory appeal. The science behind chicory’s contribution is rooted in its roast chemistry—especially Maillard-derived melanoidins—and a distinct aroma matrix led by potent odorants such as rotundone, sotolon, and key pyrazines. When properly specified by roast degree and particle characteristics, roasted chicory can improve foam behavior, modulate bitterness and sweetness, and increase batch-to-batch uniformity across large-scale operations.</p>
       <p>This guide distills what matters most for industrial buyers: how light vs. dark roasted chicory changes aroma and mouthfeel; how melanoidin-rich matrices support foam and body; how to navigate crema stability; and how to lock in cup consistency through roast targets, quality specs, and process controls.</p>
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Process documentation:</strong> Require roast time–temperature curves and cooling/drying records to reduce drift in melanoidin development and volatile balance.</li>
       </ul>
       <p class="mt-4">These controls support predictable crema behavior and cup profiles when combined with coffee-side parameters like basket size, dose, and brew ratio.</p>
-
+      
       <h3 class="mt-8 font-headline text-2xl font-bold">Application Guidance by Segment</h3>
        <ul class="list-disc pl-6 space-y-2 mt-4">
         <li><strong>Espresso blends:</strong> Pair medium-to-dark roasted chicory with medium/dark coffee roasts; calibrate dose and basket selection to leverage crema-friendly extraction and melanoidin body.</li>
@@ -107,29 +107,29 @@ export const blogPosts: BlogPost[] = [
       </ul>
       <p class="mt-4">This approach secures the cup and crema performance promised in development through commercial runs.</p>
       `,
-      faq: [
-          {
-              question: "Does chicory directly create crema?",
-              answer: "Not directly like coffee oils/proteins, but its melanoidins and high-MW fractions can enhance the bulk phase to support foam retention when brewing variables are optimized."
-          },
-          {
-              question: "Which roast degree is best for crema?",
-              answer: "There is no single “best”; blends benefit when roast targets are chosen to balance caramel sweetness and roasty depth, then brewed with basket/dose parameters tuned for crema stability."
-          },
-          {
-              question: "Will chicory make my blend taste “too chicory-like”?",
-              answer: "Control by specifying roast color and sensory cutoffs for rotundone-driven notes, and balance with coffee origins/roasts to keep the chicory signature supportive rather than dominant."
-          }
-      ]
+    faq: [
+      {
+        question: 'Does chicory directly create crema?',
+        answer: 'Not directly like coffee oils/proteins, but its melanoidins and high-MW fractions can enhance the bulk phase to support foam retention when brewing variables are optimized.',
+      },
+      {
+        question: 'Which roast degree is best for crema?',
+        answer: 'There is no single “best”; blends benefit when roast targets are chosen to balance caramel sweetness and roasty depth, then brewed with basket/dose parameters tuned for crema stability.',
+      },
+      {
+        question: 'Will chicory make my blend taste “too chicory-like”?',
+        answer: 'Control by specifying roast color and sensory cutoffs for rotundone-driven notes, and balance with coffee origins/roasts to keep the chicory signature supportive rather than dominant.',
+      },
+    ],
   },
   {
-    slug: "dried-chicory-cubes-vs-hand-cut-roots",
-    title: "Dried Chicory Cubes vs. Hand-Cut Roots: The Right Input for Roasting and Extraction Lines",
-    description: "Compare dried cubes and hand-cut chicory for industrial roasting and extraction. Learn impacts on yield, filtration, sensory, and cost—plus spec templates and trial protocols.",
-    date: "July 15, 2024",
-    category: "Process Engineering",
-    image: "https://images.unsplash.com/photo-1590663731174-884076356e6e?q=80&w=600",
-    aiHint: "raw ingredients",
+    slug: 'dried-chicory-cubes-vs-hand-cut-roots',
+    title: 'Dried Chicory Cubes vs. Hand-Cut Roots: The Right Input for Roasting and Extraction Lines',
+    description: 'Compare dried cubes and hand-cut chicory for industrial roasting and extraction. Learn impacts on yield, filtration, sensory, and cost—plus spec templates and trial protocols.',
+    date: 'July 15, 2024',
+    category: 'Process Engineering',
+    image: 'https://images.unsplash.com/photo-1590663731174-884076356e6e?q=80&w=600',
+    aiHint: 'raw ingredients',
     content: `
         <p>Industrial buyers weighing dried chicory cubes against hand-cut roots are ultimately deciding between throughput efficiency and maximum control over extraction behavior, roast development, and downstream filtration. This guide compares both inputs across roasting dynamics, extraction yields, filtration/clarity, sensory outcomes, QA specs, and cost/logistics—so procurement and technical teams can align raw material choice with process constraints and target cup profiles.</p>
         <p>RSI Chicory manufactures both inputs at scale under a contract-farming model with on-farm dicing, 48-hour sun drying, and in-house roasting at Etah, enabling like-for-like quality comparisons within a single supply chain. The decision framework below is tuned for espresso/industrial blends, soluble coffee, beverage premixes, and RTD formulations.</p>
@@ -304,24 +304,24 @@ export const blogPosts: BlogPost[] = [
         </ul>
     `,
     faq: [
-        {
-            question: "Excess fines causing filter blinding",
-            answer: "Switch higher fraction to cubes; add pre-screening; reduce mechanical stress in conveying."
-        },
-        {
-            question: "Inconsistent roast color with hand-cut",
-            answer: "Lower batch load, extend development, improve bed agitation, or tighten cut distribution."
-        },
-        {
-            question: "RTD sedimentation",
-            answer: "Use cubes, implement two-stage filtration (depth + membrane), and optimize cold hold before fill."
-        },
-        {
-            question: "Thin mouthfeel at target brix",
-            answer: "Increase hand-cut fraction modestly; adjust roast development to boost melanoidin formation."
-        }
-    ]
-  }
+      {
+        question: 'Excess fines causing filter blinding',
+        answer: 'Switch higher fraction to cubes; add pre-screening; reduce mechanical stress in conveying.',
+      },
+      {
+        question: 'Inconsistent roast color with hand-cut',
+        answer: 'Lower batch load, extend development, improve bed agitation, or tighten cut distribution.',
+      },
+      {
+        question: 'RTD sedimentation',
+        answer: 'Use cubes, implement two-stage filtration (depth + membrane), and optimize cold hold before fill.',
+      },
+      {
+        question: 'Thin mouthfeel at target brix',
+        answer: 'Increase hand-cut fraction modestly; adjust roast development to boost melanoidin formation.',
+      },
+    ],
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
