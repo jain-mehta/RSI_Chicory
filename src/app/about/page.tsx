@@ -132,6 +132,7 @@ const AboutPage = () => {
                     <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">FSSAI</Badge>
                     <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">APEDA</Badge>
                     <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">IEC</Badge>
+                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">ISO</Badge>
                 </div>
             </div>
         </div>
