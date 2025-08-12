@@ -48,7 +48,7 @@ const processSteps = [
   {
     icon: Package,
     title: 'Processing & Packaging',
-    description: 'Processed into cubes, powder, or liquid and packed for export.',
+    description: 'Processed into liquid and powder form and packed for export.',
   },
   {
     icon: Globe,
