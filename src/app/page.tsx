@@ -11,7 +11,6 @@ export default function Home() {
     'dried-chicory-cubes',
     'hand-cut-chicory-roots',
     'roasted-chicory-granules',
-    'roasted-chicory-cubes-nrc',
   ];
 
   const featuredProducts = featuredProductSlugs
