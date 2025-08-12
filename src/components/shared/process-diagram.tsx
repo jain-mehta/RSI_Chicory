@@ -10,6 +10,8 @@ import {
   Flame,
   Package,
   Globe,
+  Plus,
+  UnfoldVertical,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
@@ -44,6 +46,11 @@ const processSteps = [
     icon: Flame,
     title: 'Roasting',
     description: 'Cubes are roasted in advanced machinery to develop rich flavor.',
+  },
+  {
+    icon: UnfoldVertical,
+    title: 'Granulation',
+    description: 'Roasted chicory cubes are granulated to create soluble granules for instant preparations.',
   },
   {
     icon: Package,
