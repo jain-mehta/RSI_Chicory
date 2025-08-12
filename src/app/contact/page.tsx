@@ -133,26 +133,6 @@ const ContactPage = () => {
                     </CardContent>
                 </Card>
             </section>
-
-            {/* Map Section */}
-            <section className="mt-20">
-                <h2 className="text-center font-headline text-3xl font-bold">Our Location</h2>
-                 <p className="mx-auto mt-2 max-w-2xl text-center text-muted-foreground">
-                    Visit our manufacturing facility in Etah, Uttar Pradesh.
-                </p>
-                <div className="mt-8 aspect-video overflow-hidden rounded-lg shadow-md">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.901597818967!2d78.6750033150522!3d27.56499998285141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974e7991e771c77%3A0x2966e3c63948695!2sR.S.%20IMPEX!5e0!3m2!1sen!2sus!4v1678886400001!5m2!1sen!2sus"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen={true}
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="RSI Chicory Location Map"
-                    ></iframe>
-                </div>
-            </section>
         </div>
     </div>
   );
