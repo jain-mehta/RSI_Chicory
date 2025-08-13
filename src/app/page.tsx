@@ -33,21 +33,28 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 text-center text-white">
-          <h1 className="font-headline text-3xl font-bold tracking-tight text-primary-foreground md:text-6xl">
-            <span style={{color: '#00008B'}}>RS</span><span style={{color: '#B81C22'}}>I</span> Chicor<sup style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '1em',
-              height: '1em',
-              borderRadius: '50%',
-              border: '2px solid white',
-              fontSize: '0.4em',
-              marginLeft: '0.2em',
-              fontWeight: 'normal',
-              verticalAlign: 'super',
-            }}>TM</sup>y: Your Trusted B2B Partner
+          <h1 className="font-headline text-3xl font-bold tracking-tight text-white md:text-6xl">
+            RSI Chicory
+            <sup
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "1em",
+                height: "1em",
+                borderRadius: "50%",
+                border: "2px solid white",
+                fontSize: "0.2em",
+                fontWeight: "normal",
+                padding:"0.7rem",
+                verticalAlign: "super",
+              }}
+            >
+              TM
+            </sup>
+            : Your Trusted B2B Partner
           </h1>
+
           <p className="mt-4 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
             Premium Chicory Products Sourced Directly From Indian Farms. Built for Global Scale.
           </p>
@@ -153,7 +160,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* B2B Partner Section */}
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
@@ -186,7 +193,7 @@ export default function Home() {
           </div>
           <div className="mt-12">
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link href="/contact?inquiry=bulk">Enquire for Bulk Pricing</Link>
+              <Link href="/contact?inquiry=bulk">Enquire for Bulk Pricing</Link>
             </Button>
           </div>
         </div>

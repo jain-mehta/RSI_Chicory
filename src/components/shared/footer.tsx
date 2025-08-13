@@ -1,7 +1,8 @@
 
 import Link from 'next/link';
 import { Linkedin, Youtube, Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
-import Logo from './logo';
+import Logo from '@/assets/images/RSI logo.jpg';
+import Image from 'next/image';
 import {
   BRAND_NAME,
   SOCIAL_LINKS,
@@ -39,7 +40,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-4 md:col-span-2 lg:col-span-1">
-            <Logo />
+            <Image src={Logo} alt="Logo" className="h-20 w-20"/> 
             <p className="text-sm text-primary-foreground/90">
                 {COMPANY_NAME} - Premium chicory manufacturer and supplier. Established 2025, serving global B2B markets with quality chicory products from contract farming to export.
             </p>

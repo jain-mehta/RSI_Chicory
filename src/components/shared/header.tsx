@@ -30,12 +30,15 @@ const Header = () => {
               key={link.href}
               href={link.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                pathname === link.href ? 'text-primary' : 'text-muted-foreground'
+                'text-sm font-medium transition-colors',
+                pathname === link.href
+                  ? 'text-primary underline underline-offset-4' // Active page
+                  : 'text-muted-foreground hover:text-primary hover:underline hover:underline-offset-4' // Hover style
               )}
             >
               {link.label}
             </Link>
+
           ))}
         </nav>
 
@@ -49,11 +52,11 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-            <LanguageSelector />
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              <span className="sr-only">Toggle menu</span>
-            </Button>
+          <LanguageSelector />
+          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span className="sr-only">Toggle menu</span>
+          </Button>
         </div>
       </div>
 

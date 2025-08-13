@@ -96,7 +96,7 @@ export const products: Product[] = [
       form: "Granules",
       shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
-    packaging: "Standard: 25kg multi-wall paper bags with inner LDPE liner; optional 35kg PP/HDPE lined bags; custom/bulk packing available.",
+    packaging: "Standard: 25kg multi-wall paper bags with inner LDPE liner.",
     moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
