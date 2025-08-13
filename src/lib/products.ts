@@ -36,7 +36,7 @@ export const products: Product[] = [
       shelfLife: "12 months when stored ≤25°C in a cool, dry place away from sunlight; keep bags sealed.",
     },
     packaging: "Standard: 35kg lined PP/HDPE bags with inner LDPE liner; custom/bulk packing available.",
-    moq: "20 Tons (negotiable for annual/contract supplies)",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
       shelfLife: "24 months",
     },
     packaging: "35kg lined PP/HDPE bags with inner liner; batch no., net wt., MFG month printed; custom/bulk packing on request.",
-    moq: "20 Tons (negotiable for annual/contract supplies)",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -72,7 +72,7 @@ export const products: Product[] = [
       shelfLife: "18 months",
     },
     packaging: "35kg lined PP/HDPE bags with inner LDPE liner; custom/bulk packing available.",
-    moq: "20 Tons (negotiable for annual/contract supplies)",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -90,7 +90,7 @@ export const products: Product[] = [
       shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
     packaging: "Standard: 25kg multi-wall paper bags with inner LDPE liner; optional 35kg PP/HDPE lined bags; custom/bulk packing available.",
-    moq: "20 Tons (negotiable for annual/contract supplies)",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
     {
@@ -116,7 +116,7 @@ export const products: Product[] = [
       shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
     packaging: "Standard: 35kg lined PP/HDPE bags with inner LDPE liner; custom/bulk packing available.",
-    moq: "20 Tons (negotiable for long-term/bulk contracts)",
+    moq: "20 Tons (Negotiable for long-term/bulk contracts)",
     price: "Contact us for custom pricing",
   },
   {
@@ -139,7 +139,7 @@ export const products: Product[] = [
       shelfLife: "12 months when stored ≤25°C in a cool, dry place away from sunlight; use clean, dry transfer lines.",
     },
     packaging: "35kg HDPE carboys or 285–300kg HDPE drums with inner liner; batch no., net wt., Brix, and month of packing printed; bulk tanker supply on request.",
-    moq: "20 Tons (negotiable for annual/contract supplies)",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {
@@ -157,7 +157,7 @@ export const products: Product[] = [
       shelfLife: "18 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
     },
     packaging: "Standard: 25kg multi-wall paper bags with inner liner; optional 35–40kg PP/HDPE lined bags; custom/bulk packing available.",
-    moq: "20 Tons (negotiable for annual/contract supplies)",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
 ];
