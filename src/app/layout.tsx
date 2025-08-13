@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import WhatsAppButton from '@/components/shared/whatsapp-button';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -33,7 +32,6 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
-        <WhatsAppButton />
         <Toaster />
       </body>
     </html>

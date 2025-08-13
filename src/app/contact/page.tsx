@@ -1,7 +1,7 @@
 
 import { ContactForm } from '@/components/shared/contact-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE_1, COMPANY_PHONE_2 } from '@/lib/constants';
+import { COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_PHONE_2 } from '@/lib/constants';
 import { Mail, Phone, MapPin, LineChart, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -62,8 +62,6 @@ const ContactPage = () => {
                                 <Phone className="mt-1 h-8 w-8 shrink-0 text-primary" />
                                 <div>
                                     <p className="font-semibold">Phone</p>
-                                    <a href={`tel:${COMPANY_PHONE_1}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_1}</a>
-                                    <br />
                                     <a href={`tel:${COMPANY_PHONE_2}`} className="text-lg text-muted-foreground transition-colors hover:text-primary">{COMPANY_PHONE_2}</a>
                                 </div>
                             </div>
@@ -120,8 +118,8 @@ const ContactPage = () => {
                         </p>
                         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <Button asChild>
-                                <a href={`tel:${COMPANY_PHONE_1}`}>
-                                    <Phone /> Call: {COMPANY_PHONE_1}
+                                <a href={`tel:${COMPANY_PHONE_2}`}>
+                                    <Phone /> Call: {COMPANY_PHONE_2}
                                 </a>
                             </Button>
                             <Button asChild variant="outline">

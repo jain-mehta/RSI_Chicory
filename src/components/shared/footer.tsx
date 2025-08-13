@@ -9,7 +9,6 @@ import {
   FOOTER_LINKS_COMPANY,
   COMPANY_ADDRESS,
   COMPANY_EMAIL,
-  COMPANY_PHONE_1,
   COMPANY_PHONE_2,
   COMPANY_NAME
 } from '@/lib/constants';
@@ -52,8 +51,6 @@ const Footer = () => {
                  <div className='flex items-start gap-2'>
                     <Phone className="h-4 w-4 shrink-0 mt-0.5" />
                     <div>
-                      <a href={`tel:${COMPANY_PHONE_1}`} className="hover:underline">{COMPANY_PHONE_1}</a>
-                      <br />
                       <a href={`tel:${COMPANY_PHONE_2}`} className="hover:underline">{COMPANY_PHONE_2}</a>
                     </div>
                 </div>
