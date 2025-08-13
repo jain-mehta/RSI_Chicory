@@ -1,5 +1,3 @@
-// This file acts as a mock database for blog posts.
-
 export type BlogPost = {
   slug: string;
   title: string;
@@ -8,7 +6,7 @@ export type BlogPost = {
   category: string;
   image: string;
   aiHint: string;
-  content: string; // Adding a longer content field
+  content: string; 
   faq?: { question: string; answer: string }[];
 };
 

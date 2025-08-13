@@ -5,6 +5,7 @@ import { products, Product } from '@/lib/products';
 import { ArrowRight, Leaf, Package, Globe, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Hero from "@/assets/images/Home page hero image.png"
 
 export default function Home() {
   const featuredProductSlugs = [
@@ -23,7 +24,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] w-full bg-primary/20">
         <Image
-          src="https://images.unsplash.com/photo-1589732380879-bf11597ac7de?q=80&w=1920"
+          src={Hero}
           alt="Chicory farm landscape with a beautiful sunrise"
           data-ai-hint="chicory farm"
           layout="fill"

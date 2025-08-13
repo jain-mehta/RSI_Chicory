@@ -1,9 +1,16 @@
 // This file acts as a mock database for product information.
-
+import img from "@/assets/images/Hand Cut Chicory Roots 3.webp"
+import img2 from "@/assets/images/Roasted-Chicory-Cubes (Dark).jpg"
+import img3 from "@/assets/images/dried-chicory-cubes.jpeg.jpg"
+import img4 from "@/assets/images/Roasted chicory granules.png" 
+import img5 from "@/assets/images/roasted-chicory-cubes (Light).png"
+import img6 from "@/assets/images/Liquid-Chicory-Extract.webp"
+import img7 from "@/assets/images/Roasted Chicory Powder.jpg"
+import { StaticImageData } from "next/image";
 export type Product = {
   name: string;
   slug: string;
-  image: string;
+  image: StaticImageData | string; 
   aiHint: string;
   description: string;
   origin: string;
@@ -15,8 +22,8 @@ export type Product = {
     shelfLife: string;
   };
   packaging: string;
-  moq: string; // Minimum Order Quantity
-  price: string; // Price per unit
+  moq: string; 
+  price: string; 
   options?: { title: string; values: string[] };
 };
 
@@ -24,7 +31,7 @@ export const products: Product[] = [
   {
     name: "Hand Cut Chicory Roots",
     slug: "hand-cut-chicory-roots",
-    image: "https://images.unsplash.com/photo-1606856843374-4dd99b3fa24a?q=80&w=600",
+    image: img,
     aiHint: "chopped vegetables",
     description: "Produced via contract farming with French-origin chicory seeds; farmer hand-cut and sun-dried; batch-tested and fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
@@ -42,7 +49,7 @@ export const products: Product[] = [
   {
     name: "Roasted Chicory Cubes (DRC)",
     slug: "roasted-chicory-cubes-drc",
-    image: "https://images.unsplash.com/photo-1605941833825-78363787324c?q=80&w=600&dark",
+    image: img2,
     aiHint: "dark roasted coffee",
     description: "Dark Roast Chicory (DRC) cubes, expertly roasted for a robust, rich, and coffee-like flavor. Perfect for creating strong, dark blends and for applications requiring a deep color and intense taste. Produced from French-origin chicory via contract farming; batch-tested; fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
@@ -60,7 +67,7 @@ export const products: Product[] = [
   {
     name: "Dried Chicory Cubes",
     slug: "dried-chicory-cubes",
-    image: "https://images.unsplash.com/photo-1525203139896-77880291bb6f?q=80&w=600",
+    image: img3,
     aiHint: "dried herbs",
     description: "Produced from French-origin chicory via contract farming, these cubes are batch-tested and fully traceable. Washed, diced, sun-dried for 48–72 hours, then graded and hygienically packed at our Etah facility. Ready for export, they are an ideal raw material for coffee and food ingredient partners.",
     origin: "India",
@@ -78,7 +85,7 @@ export const products: Product[] = [
   {
     name: "Roasted Chicory Granules",
     slug: "roasted-chicory-granules",
-    image: "https://images.unsplash.com/photo-1495474472287-4d713b22e8b4?q=80&w=600",
+    image: img4,
     aiHint: "instant coffee",
     description: "Soluble chicory granules produced from French-origin chicory via contract farming; batch-tested and fully traceable. Designed for instant coffee preparations and vending, offering excellent solubility and consistent flavor. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
@@ -96,7 +103,7 @@ export const products: Product[] = [
     {
     name: "Roasted Chicory Cubes (NRC)",
     slug: "roasted-chicory-cubes-nrc",
-    image: "https://images.unsplash.com/photo-1605941833825-78363787324c?q=80&w=600&light",
+    image: img5,
     aiHint: "roasted coffee beans",
     description: "Normal Roast Chicory (NRC) cubes, uniformly roasted to produce a mild, balanced flavor with pleasant, caramel notes. Produced from French chicory seeds via a contract farming model; batch-tested for consistent quality and full traceability. Ready for export—seeking new global partners in coffee, food, and beverage sectors.",
     origin: "India",
@@ -122,7 +129,7 @@ export const products: Product[] = [
   {
     name: "Liquid Chicory Extract",
     slug: "liquid-chicory-extract",
-    image: "https://images.unsplash.com/photo-1600727036683-e006e534444b?q=80&w=600",
+    image: img6,
     aiHint: "dark syrup",
     description: "A concentrated liquid extract made from roasted chicory, ideal for seamless integration into liquid-based food and beverage production lines. Prepared from roasted chicory cubes via hot-water extraction, filtered and concentrated in falling-film evaporators; packed hot in food-grade HDPE drums to preserve quality. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",
@@ -145,7 +152,7 @@ export const products: Product[] = [
   {
     name: "Roasted Chicory Powder",
     slug: "roasted-chicory-powder",
-    image: "https://images.unsplash.com/photo-1572432185265-32a843997298?q=80&w=600",
+    image: img7,
     aiHint: "brown powder spices",
     description: "A fine powder from French-origin chicory, produced via contract farming with a fully traceable supply chain. Its fine texture allows for seamless blending in coffee filter powders and various food applications. Ready for export — partners invited in coffee and food ingredients.",
     origin: "India",

@@ -6,6 +6,7 @@ import { Building, Globe, Leaf, CheckSquare } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { ProcessDiagram } from '@/components/shared/process-diagram';
+import About from "@/assets/images/About us page hero image.png"
 
 export const metadata: Metadata = {
   title: 'About Us | RSI Chicory',
@@ -19,10 +20,10 @@ const AboutPage = () => {
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] w-full bg-primary/20">
         <Image
-          src="https://images.unsplash.com/photo-1549488344-cbb6c144a423?q=80&w=1920"
+          src={About}
           alt="Chicory processing facility"
           data-ai-hint="factory exterior"
-          fill
+          fill  
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />

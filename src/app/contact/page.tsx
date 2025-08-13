@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, LineChart, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import Contact from "@/assets/images/Contact us hero images.png";
 
 export const metadata: Metadata = {
   title: 'Contact Us | RSI Chicory',
@@ -23,10 +24,9 @@ const ContactPage = () => {
 
   return (
     <div>
-        {/* Hero Section */}
         <section className="relative h-[40vh] min-h-[300px] w-full bg-primary/20">
             <Image
-            src="https://images.unsplash.com/photo-1577563908411-5ab7ced106c8?q=80&w=1920"
+            src={Contact}
             alt="Customer service representative"
             data-ai-hint="contact center"
             fill
@@ -43,7 +43,6 @@ const ContactPage = () => {
 
         <div className="container mx-auto px-4 py-12 md:py-20">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-                {/* Contact Information & Services */}
                 <div className="flex flex-col gap-12">
                     <div>
                         <h2 className="font-headline text-3xl font-extrabold border-b-2 pb-2 mb-4">Contact Information</h2>

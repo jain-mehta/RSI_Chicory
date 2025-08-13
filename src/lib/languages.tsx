@@ -3,9 +3,9 @@
 import React from 'react';
 
 export type Language = {
-  code: 'en' | 'es' | 'fr' | 'de' | 'ar' | 'zh'; // ISO 639-1 language code
+  code: 'en' | 'es' | 'fr' | 'de' | 'ar' | 'zh'; 
   name: string;
-  countryCode: string; // ISO 3166-1 alpha-2 country code
+  countryCode: string;
 };
 
 export const LANGUAGES: Language[] = [
