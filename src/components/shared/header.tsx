@@ -44,7 +44,6 @@ const Header = () => {
 
         {/* Header Actions */}
         <div className="hidden items-center gap-2 md:flex">
-          <LanguageSelector />
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Link href="/contact">Contact Us</Link>
           </Button>
@@ -52,7 +51,6 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
-          <LanguageSelector />
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             <span className="sr-only">Toggle menu</span>
