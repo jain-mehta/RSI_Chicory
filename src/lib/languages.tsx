@@ -1,5 +1,3 @@
-
-// This file contains the language data for the language selector.
 import React from 'react';
 
 export type Language = {

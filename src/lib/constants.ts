@@ -38,7 +38,7 @@ export const FOOTER_LINKS_PRODUCTS = () => products.map(product => ({
 export const FOOTER_LINKS_COMPANY = () => [
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact Us" },
-    { href: "/blog", label: "Blog" },
+    //{ href: "/blog", label: "Blog" },
     { href: "/sitemap", label: "Sitemap" },
     { href: "/privacy-policy", label: "Privacy Policy" },
 ];
