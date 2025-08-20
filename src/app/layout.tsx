@@ -1,13 +1,14 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
+import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script'; // Correct import
 
-const inter = Inter({ 
-  subsets: ['latin'], 
+const inter = Inter({
+  subsets: ['latin'],
   variable: '--font-inter',
   weight: ['400', '500', '600', '700', '800'],
 });
@@ -25,10 +26,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body className={`${inter.variable} font-body antialiased`} suppressHydrationWarning>
         <div className="flex min-h-screen flex-col">
           <Header />
+          {/* Google Analytics Scripts */}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-NWSLGPH7LR"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-NWSLGPH7LR');
+            `}
+          </Script>
+          {/* Vercel Analytics */}
+          <Analytics />
+          {/* Main Content Area */}
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
