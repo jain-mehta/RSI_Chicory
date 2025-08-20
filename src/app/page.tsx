@@ -1,10 +1,10 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { products, Product } from '@/lib/products';
 import { ArrowRight, Leaf, Package, Globe, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ProcessingUnit from "@/assets/images/home page processing unit image.png"
 import Hero from "@/assets/images/Home page hero image.png"
 
 export default function Home() {
@@ -149,9 +149,9 @@ export default function Home() {
             </div>
             <div>
               <Image
-                src="https://images.unsplash.com/photo-1579693910433-e4c76a59e9aa?q=80&w=600"
+                src={ProcessingUnit}
+                title="home page processing unit image"
                 alt="Industrial processing of chicory"
-                data-ai-hint="food processing"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-md"
