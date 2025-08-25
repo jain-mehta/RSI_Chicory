@@ -266,7 +266,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                 control={form.control}
                 name="countryCode"
                 render={({ field }) => (
-                  <FormItem className="w-40 flex-shrink-0">
+                  <FormItem className="w-auto flex-shrink-0">
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
