@@ -5,7 +5,7 @@ import { ArrowRight, Leaf, Package, Globe, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProcessingUnit from "@/assets/images/home page processing unit image.png"
-import Hero from "@/assets/images/Home page hero image.png"
+import Hero from "@/assets/images/Home page hero image.webp"
 
 export default function Home() {
   const featuredProductSlugs = [
