@@ -32,19 +32,23 @@ const nextConfig: NextConfig = {
   experimental: {
     allowedDevOrigins: ["*"],
   },
-  // Add sitemap configuration
   async headers() {
     return [
+      /* 1️⃣  Serve sitemap.xml with correct headers */
       {
         source: '/sitemap.xml',
         headers: [
+          { key: 'Content-Type', value: 'application/xml' },
+          { key: 'Cache-Control', value: 'public, max-age=3600, must-revalidate' },
+        ],
+      },
+      /* 2️⃣  Add X-Robots-Tag to EVERY route */
+      {
+        source: '/:path*',
+        headers: [
           {
-            key: 'Content-Type',
-            value: 'application/xml',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate',
+            key: 'X-Robots-Tag',
+            value: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
           },
         ],
       },

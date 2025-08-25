@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rsichicory.com'),
 
   /* -------- <title> (~55–60 chars, brand + core term up front) -------- */
-  title: 'RSI Chicory®',
+  title: 'RSI Chicory: Your Trusted B2B Partner',
 
   /* -------- <meta description> (<160 chars, value prop + CTAs) -------- */
   description:
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://rsichicory.com',
-    siteName: 'RSI Chicory®',
-    title: 'RSI Chicory® | Premium Bulk Chicory Ingredients from India',
+    siteName: 'RSI Chicory',
+    title: 'RSI Chicory | Premium Bulk Chicory Ingredients from India',
     description:
       'Trusted B2B partner for roasted chicory cubes, granules, powder & extracts. Global export, ISO & FSSAI compliant, full traceability from farm to factory.',
     images: [
@@ -68,11 +68,11 @@ export const metadata: Metadata = {
   },
 
   /* -------- Publisher -------- */
-  publisher: 'RSI Chicory®',
+  publisher: 'RSI Chicory',
 
   /* -------- Canonical URL -------- */
   alternates: {
-    canonical: 'https://rsichicory.com',
+    canonical: 'https://www.rsichicory.com',
   },
 
   /* -------- Verification -------- */
