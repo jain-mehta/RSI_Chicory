@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rsichicory.com'),
 
   /* -------- <title> (~55–60 chars, brand + core term up front) -------- */
-  title: 'RSI Chicory® Bulk Manufacturer, India',
+  title: 'RSI Chicory®',
 
   /* -------- <meta description> (<160 chars, value prop + CTAs) -------- */
   description:
-    'ISO-certified Indian producer of bulk roasted chicory cubes, granules, powder & liquid extract. Fully traceable contract-farm supply for coffee, food & beverage manufacturers worldwide.',
+    'ISO-certified bulk producer of roasted chicory cubes, granules, powder & extract from India. Traceable contract-farming for coffee & beverage industries.',
 
   /* -------- <meta keywords> (<600 chars) -------- */
   keywords:
@@ -67,9 +67,22 @@ export const metadata: Metadata = {
     },
   },
 
+  /* -------- Publisher -------- */
+  publisher: 'RSI Chicory®',
+
+  /* -------- Canonical URL -------- */
+  alternates: {
+    canonical: 'https://rsichicory.com',
+  },
+
   /* -------- Verification -------- */
   verification: {
     google: 'G-9HG8H5FS72',
+  },
+  
+  /* -------- X-Robots-Tag Header -------- */
+  other: {
+    'x-robots-tag': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
 };
 
