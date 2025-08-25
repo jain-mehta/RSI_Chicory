@@ -1,4 +1,3 @@
-
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { COMPANY_ESTABLISHED } from '@/lib/constants';
@@ -23,7 +22,7 @@ const AboutPage = () => {
           src={About}
           alt="Chicory processing facility"
           data-ai-hint="factory exterior"
-          fill  
+          fill
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -122,20 +121,20 @@ const AboutPage = () => {
       </section>
 
       {/* Certifications Section */}
-      <section className="bg-background py-12 md:py-20">
+      <section className="bg-background py-4 md:py-6">
         <div className="container mx-auto px-4">
-            <div className="text-center">
-                <h2 className="font-headline text-3xl font-bold">Our Certifications</h2>
-                <p className="mx-auto mt-2 max-w-3xl text-muted-foreground">
-                    Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
-                </p>
-                <div className="mt-8 flex justify-center gap-4 md:gap-8">
-                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">FSSAI</Badge>
-                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">APEDA</Badge>
-                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">IEC</Badge>
-                    <Badge variant="secondary" className="border-border px-6 py-3 text-lg md:px-8 md:py-4">ISO</Badge>
-                </div>
+          <div className="text-center">
+            <h2 className="font-headline text-2xl sm:text-3xl font-bold">Our Certifications</h2>
+            <p className="mx-auto mt-2 max-w-3xl text-sm sm:text-base text-muted-foreground px-4">
+              Our commitment to quality is backed by industry-recognized certifications, ensuring our products meet both domestic and international standards.
+            </p>
+            <div className="mt-6 sm:mt-8 flex flex-row flex-wrap justify-center gap-3 sm:gap-4 max-w-3xl mx-auto px-4">
+              <Badge variant="secondary" className="border-border flex-1 min-w-[120px] max-w-[200px] flex justify-center items-center h-12 sm:h-14 text-sm sm:text-base whitespace-nowrap">FSSAI</Badge>
+              <Badge variant="secondary" className="border-border flex-1 min-w-[120px] max-w-[200px] flex justify-center items-center h-12 sm:h-14 text-sm sm:text-base whitespace-nowrap">APEDA</Badge>
+              <Badge variant="secondary" className="border-border flex-1 min-w-[120px] max-w-[200px] flex justify-center items-center h-12 sm:h-14 text-sm sm:text-base whitespace-nowrap">IEC</Badge>
+              <Badge variant="secondary" className="border-border flex-1 min-w-[120px] max-w-[200px] flex justify-center items-center h-12 sm:h-14 text-sm sm:text-base whitespace-nowrap">ISO</Badge>
             </div>
+          </div>
         </div>
       </section>
     </div>

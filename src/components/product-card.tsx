@@ -10,8 +10,8 @@ type ProductCardProps = {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <Link href={`/products/${product.slug}`} className="block">
-      <Card className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+    <Link href={`/products/${product.slug}`} className="block h-[450px]"> {/* Fixed height container */}
+      <Card className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl h-full">
         <CardHeader className="p-0">
           <Image
             src={product.image}
@@ -23,8 +23,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
         </CardHeader>
         <CardContent className="flex flex-1 flex-col p-6">
-          <CardTitle className="mb-2 text-xl">{product.name}</CardTitle>
-          <CardDescription className="flex-grow">{product.description}</CardDescription>
+          <CardTitle className="mb-2 text-xl line-clamp-1">{product.name}</CardTitle>
+          <CardDescription className="flex-grow line-clamp-3">{product.description}</CardDescription>
           <div className="mt-4 flex items-center text-accent">
             View Details <ArrowRight className="ml-2 h-4 w-4" />
           </div>

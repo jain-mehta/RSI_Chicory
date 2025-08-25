@@ -2,7 +2,7 @@
 import img from "@/assets/images/Hand Cut Chicory Roots 3.webp"
 import img2 from "@/assets/images/Roasted-Chicory-Cubes (Dark).jpg"
 import img3 from "@/assets/images/dried-chicory-cubes.jpeg.jpg"
-import img4 from "@/assets/images/Roasted chicory granules.png" 
+import img4 from "@/assets/images/Roasted chicory granules.png"
 import img5 from "@/assets/images/roasted-chicory-cubes (Light).png"
 import img6 from "@/assets/images/Liquid-Chicory-Extract.webp"
 import img7 from "@/assets/images/Roasted Chicory Powder.jpg"
@@ -10,7 +10,7 @@ import { StaticImageData } from "next/image";
 export type Product = {
   name: string;
   slug: string;
-  image: StaticImageData | string; 
+  image: StaticImageData | string;
   aiHint: string;
   description: string;
   origin: string;
@@ -22,8 +22,8 @@ export type Product = {
     shelfLife: string;
   };
   packaging: string;
-  moq: string; 
-  price: string; 
+  moq: string;
+  price: string;
   options?: { title: string; values: string[] };
 };
 
@@ -47,24 +47,6 @@ export const products: Product[] = [
     price: "Contact us for custom pricing",
   },
   {
-    name: "Roasted Chicory Cubes (DRC)",
-    slug: "roasted-chicory-cubes-drc",
-    image: img2,
-    aiHint: "dark roasted coffee",
-    description: "Dark Roast Chicory (DRC) cubes, expertly roasted for a robust, rich, and coffee-like flavor. Perfect for creating strong, dark blends and for applications requiring a deep color and intense taste. Produced from French-origin chicory via contract farming; batch-tested; fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
-    origin: "India",
-    processing: "Uniform drum-roasted, cooled, and packed at our Etah facility to lock in aroma and deep color.",
-    applications: ["Coffee blending (instant/espresso/dark roasts)", "Ingredient & flavor systems", "Prebiotic blends", "Inulin-based and herbal beverages"],
-    specs: {
-      color: "Dark brown to black",
-      form: "Cubes (approx. 8-12mm)",
-      shelfLife: "24 months",
-    },
-    packaging: "35kg lined PP/HDPE bags with inner liner; custom/bulk packing on request.",
-    moq: "20 Tons (Negotiable for annual/contract supplies)",
-    price: "Contact us for custom pricing",
-  },
-  {
     name: "Dried Chicory Cubes",
     slug: "dried-chicory-cubes",
     image: img3,
@@ -83,24 +65,6 @@ export const products: Product[] = [
     price: "Contact us for custom pricing",
   },
   {
-    name: "Roasted Chicory Granules",
-    slug: "roasted-chicory-granules",
-    image: img4,
-    aiHint: "instant coffee",
-    description: "Soluble chicory granules produced from French-origin chicory via contract farming; batch-tested and fully traceable. Designed for instant coffee preparations and vending, offering excellent solubility and consistent flavor. Ready for export — partners invited in coffee and food ingredients.",
-    origin: "India",
-    processing: "Uniformly roasted, granulated from roasted cubes, cooled and packed in food-grade lined bags at our Etah facility.",
-    applications: ["Instant coffee and 3-in-1 premixes", "Vending premix manufacture", "Chicory-coffee blends", "Beverage flavor systems"],
-    specs: {
-      color: "Brown to dark brown",
-      form: "Granules",
-      shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
-    },
-    packaging: "Standard: 25kg multi-wall paper bags with inner LDPE liner.",
-    moq: "20 Tons (Negotiable for annual/contract supplies)",
-    price: "Contact us for custom pricing",
-  },
-    {
     name: "Roasted Chicory Cubes (NRC)",
     slug: "roasted-chicory-cubes-nrc",
     image: img5,
@@ -124,6 +88,43 @@ export const products: Product[] = [
     },
     packaging: "Standard: 35kg lined PP/HDPE bags with inner LDPE liner; custom/bulk packing available.",
     moq: "20 Tons (Negotiable for long-term/bulk contracts)",
+    price: "Contact us for custom pricing",
+  },
+  {
+    name: "Roasted Chicory Cubes (DRC)",
+    slug: "roasted-chicory-cubes-drc",
+    image: img2,
+    aiHint: "dark roasted coffee",
+    description: "Dark Roast Chicory (DRC) cubes, expertly roasted for a robust, rich, and coffee-like flavor. Perfect for creating strong, dark blends and for applications requiring a deep color and intense taste. Produced from French-origin chicory via contract farming; batch-tested; fully traceable from farm to factory. Ready for export — partners invited in coffee and food ingredients.",
+    origin: "India",
+    processing: "Uniform drum-roasted, cooled, and packed at our Etah facility to lock in aroma and deep color.",
+    applications: ["Coffee blending (instant/espresso/dark roasts)", "Ingredient & flavor systems", "Prebiotic blends", "Inulin-based and herbal beverages"],
+    specs: {
+      color: "Dark brown to black",
+      form: "Cubes (approx. 8-12mm)",
+      shelfLife: "24 months",
+    },
+    packaging: "35kg lined PP/HDPE bags with inner liner; custom/bulk packing on request.",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
+    price: "Contact us for custom pricing",
+  },
+
+  {
+    name: "Roasted Chicory Granules",
+    slug: "roasted-chicory-granules",
+    image: img4,
+    aiHint: "instant coffee",
+    description: "Soluble chicory granules produced from French-origin chicory via contract farming; batch-tested and fully traceable. Designed for instant coffee preparations and vending, offering excellent solubility and consistent flavor. Ready for export — partners invited in coffee and food ingredients.",
+    origin: "India",
+    processing: "Uniformly roasted, granulated from roasted cubes, cooled and packed in food-grade lined bags at our Etah facility.",
+    applications: ["Instant coffee and 3-in-1 premixes", "Vending premix manufacture", "Chicory-coffee blends", "Beverage flavor systems"],
+    specs: {
+      color: "Brown to dark brown",
+      form: "Granules",
+      shelfLife: "24 months when stored ≤25°C in a cool, dry place away from sunlight; keep sealed.",
+    },
+    packaging: "Standard: 25kg multi-wall paper bags with inner LDPE liner.",
+    moq: "20 Tons (Negotiable for annual/contract supplies)",
     price: "Contact us for custom pricing",
   },
   {

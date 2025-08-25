@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import { i18n } from "./next-i18next.config";
 
 const nextConfig: NextConfig = {
-  i18n, 
+  i18n,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -31,6 +31,24 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     allowedDevOrigins: ["*"],
+  },
+  // Add sitemap configuration
+  async headers() {
+    return [
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate',
+          },
+        ],
+      },
+    ];
   },
 };
 
