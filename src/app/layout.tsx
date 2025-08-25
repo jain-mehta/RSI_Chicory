@@ -14,11 +14,65 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'RSI Chicory - B2B Chicory Manufacturer & Supplier',
+  metadataBase: new URL('https://rsichicory.com'),
+
+  /* -------- <title> (~55–60 chars, brand + core term up front) -------- */
+  title: 'RSI Chicory® Bulk Manufacturer, India',
+
+  /* -------- <meta description> (<160 chars, value prop + CTAs) -------- */
   description:
-    'RSI Chicory is a leading B2B manufacturer and exporter of high-quality chicory products, including roasted chicory cubes, granules, powder, and liquid extract. We specialize in contract farming and traceable quality for global food and beverage industries.',
-  keywords: 'chicory manufacturer, chicory supplier, B2B chicory, roasted chicory, chicory export, RS Impex, RSI Chicory, India chicory',
+    'ISO-certified Indian producer of bulk roasted chicory cubes, granules, powder & liquid extract. Fully traceable contract-farm supply for coffee, food & beverage manufacturers worldwide.',
+
+  /* -------- <meta keywords> (<600 chars) -------- */
+  keywords:
+    'RSI Chicory, RS Impex, chicory manufacturer India, bulk chicory supplier, roasted chicory cubes exporter, chicory granules wholesale, food-grade chicory powder, liquid chicory extract, contract farming chicory, traceable chicory roots, instant coffee chicory blend ingredients, organic chicory India, HACCP chicory processing, APEDA chicory exporter, custom roast chicory, bulk soluble chicory, premium chicory ingredients',
+
+  /* -------- Open Graph -------- */
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://rsichicory.com',
+    siteName: 'RSI Chicory®',
+    title: 'RSI Chicory® | Premium Bulk Chicory Ingredients from India',
+    description:
+      'Trusted B2B partner for roasted chicory cubes, granules, powder & extracts. Global export, ISO & FSSAI compliant, full traceability from farm to factory.',
+    images: [
+      {
+        url: 'src/assets/images/About us page hero image.png',          // use a real 1200×630 hero image, not favicon
+        width: 1200,
+        height: 630,
+        alt: 'Bulk Roasted Chicory Cubes & Powder – RSI Chicory',
+      },
+    ],
+  },
+
+  /* -------- Twitter Card -------- */
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RSI Chicory® | Bulk Roasted & Soluble Chicory Supplier',
+    description:
+      'ISO-certified Indian manufacturer exporting premium chicory ingredients for coffee & food industries.',
+  },
+
+  /* -------- Robots -------- */
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  /* -------- Verification -------- */
+  verification: {
+    google: 'G-9HG8H5FS72',
+  },
 };
+
 
 export default function RootLayout({
   children,

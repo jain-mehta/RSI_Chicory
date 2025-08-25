@@ -1,5 +1,16 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?*
 
-# Sitemap
+# Crawl-delay
+Crawl-delay: 10
+
+# Host
+Host: https://rsichicory.com
+
+# Sitemaps
 Sitemap: https://rsichicory.com/sitemap.xml
