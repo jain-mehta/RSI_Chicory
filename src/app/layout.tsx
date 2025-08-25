@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Analytics } from '@vercel/analytics/next';
-import Script from 'next/script'; // Correct import
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,21 +28,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-body antialiased`} suppressHydrationWarning>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9HG8H5FS72"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9HG8H5FS72');
+          `}
+        </Script>
+
         <div className="flex min-h-screen flex-col">
           <Header />
-          {/* Google Analytics Scripts */}
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-NWSLGPH7LR"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-NWSLGPH7LR');
-            `}
-          </Script>
           {/* Vercel Analytics */}
           <Analytics />
           {/* Main Content Area */}

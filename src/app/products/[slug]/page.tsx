@@ -1,4 +1,3 @@
-
 import { getProductBySlug, products } from '@/lib/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -17,8 +16,10 @@ type Props = {
   params: { slug: string };
 };
 
+// Update the function call to handle async
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = getProductBySlug(params.slug);
+  const slug = await params.slug;
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.name} | RSI Chicory`,
+    title: `${product.name} - RSI Chicory`,
     description: product.description,
   };
 }

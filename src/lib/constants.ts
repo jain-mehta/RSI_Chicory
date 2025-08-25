@@ -16,7 +16,6 @@ export const NAV_LINKS = [
   { href: "/products", label: "Products" },
   { href: "/about", label: "About Us" },
   // { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
 ];
 
 // Social Media Links

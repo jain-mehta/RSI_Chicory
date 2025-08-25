@@ -33,21 +33,23 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 text-center text-white">
-          <h1 className="font-headline text-3xl font-bold tracking-tight text-white md:text-6xl">
+          <h1 className="font-headline text-3xl font-bold tracking-tight text-white md:text-6xl mt-6">
             RSI Chicory
             <sup
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "1em",
-                height: "1em",
-                borderRadius: "50%",
-                border: "2px solid white",
+                width: "0.6em",
+                height: "0.6em",
                 fontSize: "0.2em",
+                border: "1px solid white",
+                borderRadius: "50%",
+                padding: "1em",
                 fontWeight: "normal",
-                padding:"0.7rem",
                 verticalAlign: "super",
+                marginLeft: "0.1em",
+                transform: "translateY(-5px)",
               }}
             >
               TM

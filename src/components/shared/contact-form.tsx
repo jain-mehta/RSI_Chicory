@@ -26,7 +26,26 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { COUNTRIES } from '@/lib/country-codes';
-import ReactCountryFlag from 'react-country-flag';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+// Lazy load the ReactCountryFlag component
+const ReactCountryFlag = dynamic(() => import('react-country-flag'), {
+  loading: () => <div className="w-6 h-4 bg-muted animate-pulse rounded" />,
+  ssr: false
+});
+
+// Create a lazy-loaded flag component
+const CountryFlag = ({ countryCode }: { countryCode: string }) => (
+  <Suspense fallback={<div className="w-6 h-4 bg-muted animate-pulse rounded" />}>
+    <ReactCountryFlag
+      countryCode={countryCode}
+      svg
+      style={{ width: '1.5em', height: '1.5em' }}
+    />
+  </Suspense>
+);
+
 import { products } from '@/lib/products';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Check, ChevronsUpDown } from 'lucide-react';
@@ -253,7 +272,7 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                         <SelectTrigger>
                           <SelectValue asChild>
                             <div className="flex items-center gap-2">
-                              <ReactCountryFlag countryCode={field.value?.split(':')[0] || 'IN'} svg style={{ width: '1.5em', height: '1.5em' }} />
+                              <CountryFlag countryCode={field.value?.split(':')[0] || 'IN'} />
                               <span>{field.value?.split(':')[1] || '+91'}</span>
                             </div>
                           </SelectValue>
@@ -262,9 +281,12 @@ export function ContactForm({ defaultMessage, sourcePage }: ContactFormProps) {
                       <SelectContent>
                         <ScrollArea className="h-72">
                           {COUNTRIES.map((country) => (
-                            <SelectItem key={`${country.code}:${country.dialCode}`} value={`${country.code}:${country.dialCode}`}>
+                            <SelectItem 
+                              key={`${country.code}:${country.dialCode}`} 
+                              value={`${country.code}:${country.dialCode}`}
+                            >
                               <div className="flex items-center gap-2">
-                                <ReactCountryFlag countryCode={country.code} svg style={{ width: '1.5em', height: '1.5em' }} />
+                                <CountryFlag countryCode={country.code} />
                                 <span>{country.dialCode}</span>
                               </div>
                             </SelectItem>
